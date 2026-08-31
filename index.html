@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<style>body{background-color:white;}</style>
+
+  <meta charset="utf-8"/>
+  <title>Sip JI · Documentación de la encuesta y validación analítica</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <style>body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f7f8fa;
+}
+
+.screen {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.cbc-screen {
+  max-width: 1000px;
+}
+
+.screen h2, .screen h3 {
+  margin-top: 0;
+}
+
+.botonera {
+  margin-top: 2rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.progress-hint {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-bottom: 0.75rem;
+}
+
+/* =========== CBC packs =========== */
+
+.cbc-task-prompt {
+  font-weight: 600;
+  color: #003D82;
+  font-size: 1.05rem;
+  margin: 1rem 0;
+  text-align: center;
+  padding: 0.75rem;
+  background: #f4f7fb;
+  border-radius: 8px;
+}
+
+.cbc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+  margin: 1rem 0;
+}
+
+.cbc-pack {
+  border: 2px solid #e2e6ea;
+  border-radius: 12px;
+  padding: 0.85rem;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.15s;
+}
+
+.cbc-pack:hover {
+  border-color: #003D82;
+  box-shadow: 0 3px 12px rgba(0,61,130,0.1);
+}
+
+.cbc-pack-header {
+  font-weight: 700;
+  color: #003D82;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid #e2e6ea;
+  font-size: 0.95rem;
+}
+
+.cbc-attr {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+}
+
+.cbc-attr + .cbc-attr {
+  border-top: 1px dashed #f0f0f0;
+}
+
+.cbc-attr-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  width: 1.2rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.cbc-attr-body {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.cbc-attr-label {
+  font-weight: 600;
+  color: #6c757d;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.cbc-attr-value {
+  color: #212529;
+  font-size: 0.88rem;
+  line-height: 1.3;
+  margin-top: 0.1rem;
+}
+
+.cbc-attr-reward {
+  background: #fff5e6;
+  border-radius: 6px;
+  padding: 0.5rem 0.6rem;
+  margin: 0.4rem -0.2rem;
+  border-top: none !important;
+}
+
+.cbc-attr-reward .cbc-attr-value {
+  color: #b45309;
+  font-size: 0.95rem;
+}
+
+.cbc-choice {
+  margin-top: 1.25rem;
+  display: flex;
+  justify-content: center;
+}
+
+.cbc-choice .shiny-input-radiogroup {
+  width: 100%;
+}
+
+.cbc-choice .shiny-options-group {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.cbc-choice .radio {
+  margin: 0;
+  padding: 0.6rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.cbc-choice .radio label {
+  cursor: pointer;
+  font-weight: 600;
+  color: #003D82;
+}
+
+/* =========== MaxDiff 3-column layout =========== */
+
+.maxdiff-prompt-top {
+  font-size: 0.95rem;
+  color: #495057;
+  padding: 0.75rem 1rem;
+  background: #f4f7fb;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Cita del mensaje ganador en post-choice MaxDiff */
+.top-msg-quote {
+  margin: 1rem 0 1.5rem 0;
+  padding: 1rem 1.25rem;
+  background: #fff8e6;
+  border-left: 4px solid #f0ad4e;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Pack prototípico en post-choice CBC */
+.cbc-prototype-wrapper {
+  max-width: 400px;
+  margin: 1rem auto 1.5rem auto;
+}
+
+.cbc-pack-prototype {
+  border-color: #f0ad4e !important;
+  background: #fffdf8;
+}
+
+.maxdiff-3col-container {
+  display: grid;
+  grid-template-columns: 90px 1fr 90px;
+  grid-auto-rows: minmax(70px, auto);
+  gap: 0.4rem;
+  align-items: stretch;
+}
+
+.maxdiff-3col-header {
+  font-weight: 700;
+  text-align: center;
+  color: #003D82;
+  padding: 0.6rem 0.4rem;
+  background: #eef3fa;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  align-self: center;
+}
+
+/* Cada columna es un subgrid que hereda las filas del container principal.
+   Esto garantiza que cada fila (radio_best / item / radio_worst) esté alineada
+   entre las 3 columnas, incluso cuando los mensajes envuelven a varias líneas. */
+.maxdiff-3col-best-col,
+.maxdiff-3col-worst-col,
+.maxdiff-3col-items-col {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: 2 / span var(--maxdiff-n, 4);
+  gap: 0.4rem;
+}
+
+/* Hacer transparentes los wrappers de Shiny para que .radio caiga como grid-item */
+.maxdiff-3col-best-col > .form-group,
+.maxdiff-3col-worst-col > .form-group {
+  display: contents;
+}
+
+.maxdiff-3col-best-col .shiny-options-group,
+.maxdiff-3col-worst-col .shiny-options-group {
+  display: contents;
+}
+
+.maxdiff-3col-best-col .radio,
+.maxdiff-3col-worst-col .radio {
+  margin: 0;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafbfc;
+  border-radius: 8px;
+  border: 1px solid #e2e6ea;
+  transition: all 0.12s;
+}
+
+.maxdiff-3col-best-col .radio:hover,
+.maxdiff-3col-worst-col .radio:hover {
+  background: #eef3fa;
+  border-color: #003D82;
+}
+
+.maxdiff-3col-best-col .radio label,
+.maxdiff-3col-worst-col .radio label {
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.maxdiff-3col-best-col .radio label input[type="radio"],
+.maxdiff-3col-worst-col .radio label input[type="radio"] {
+  transform: scale(1.5);
+  margin: 0;
+}
+
+.maxdiff-item-row {
+  min-height: 70px;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #212529;
+}
+
+/* =========== Responsive =========== */
+
+@media (max-width: 700px) {
+  .screen {
+    margin: 0;
+    border-radius: 0;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+  .cbc-grid {
+    grid-template-columns: 1fr;
+  }
+  .cbc-choice .shiny-options-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .maxdiff-3col-container {
+    grid-template-columns: 60px 1fr 60px;
+  }
+  .maxdiff-3col-header {
+    font-size: 0.72rem;
+    padding: 0.4rem 0.2rem;
+  }
+  .maxdiff-item-row {
+    padding: 0.6rem 0.7rem;
+    font-size: 0.85rem;
+  }
+}</style>
+  <style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #212529;
+  line-height: 1.5;
+  background: #f7f8fa;
+}
+h1, h2, h3, h4 { color: #003D82; }
+h1 { border-bottom: 3px solid #003D82; padding-bottom: 0.5rem; }
+h2 { border-bottom: 1px solid #dee2e6; padding-bottom: 0.35rem; margin-top: 3rem; }
+h3 { margin-top: 2rem; }
+.section { margin-bottom: 3rem; padding: 1.5rem; background: #fff; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+.screen-preview {
+  border: 2px solid #dee2e6;
+  border-radius: 12px;
+  background: #f7f8fa;
+  padding: 0;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+.screen-preview .screen { margin: 1rem auto; }
+.screen-caption {
+  padding: 0.6rem 1rem;
+  background: #003D82;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.results-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.85rem; }
+.results-table th { background: #eef3fa; padding: 0.5rem; text-align: left; }
+.results-table td { padding: 0.35rem 0.5rem; border-bottom: 1px solid #eee; vertical-align: top; }
+.results-table caption { font-weight: 600; text-align: left; padding: 0.5rem 0; color: #495057; }
+.attr-table td:first-child { width: 22%; padding: 0.65rem 0.75rem; }
+.attr-table td { padding: 0.65rem 0.75rem; line-height: 1.5; }
+.magnitud-subtable { width: 100%; border-collapse: collapse; margin: 0; font-size: 0.88rem; }
+.magnitud-subtable td { border-bottom: 1px dashed #e9ecef; padding: 0.35rem 0.6rem; }
+.magnitud-subtable tr:last-child td { border-bottom: none; }
+.magnitud-subtable td:first-child { width: 100px; color: #003D82; }
+.magnitud-subtable td { text-align: left; font-family: system-ui, monospace; }
+.metric { display: inline-block; background: #eef3fa; padding: 0.5rem 0.9rem; border-radius: 8px; margin: 0.35rem 0.35rem 0.35rem 0; font-family: monospace; }
+.metric strong { color: #003D82; }
+.callout { border-left: 4px solid #003D82; padding: 0.75rem 1rem; background: #f4f7fb; margin: 1rem 0; border-radius: 4px; }
+.callout-warn { border-left-color: #f0ad4e; background: #fff8e6; }
+.callout-good { border-left-color: #28a745; background: #f0f9f0; }
+</style>
+</head>
+<html lang="es">
+  <body>
+    <h1>Sip JI · Documentación de la encuesta y validación analítica</h1>
+    <p>
+      <em>Generado por LVL · versión CBC v5 con pisos bajos y valores calibrados a Perú</em>
+    </p>
+    <div class="section">
+      <h2>1. Overview del estudio</h2>
+      <p>
+        El instrumento combina dos ejercicios en una sola encuesta: un 
+        <strong>MaxDiff</strong>
+         que mide qué narrativa motiva más al Joven Independiente, 
+        y un 
+        <strong>CBC (Conjoint)</strong>
+         que estima el peso relativo de los atributos 
+        que componen una recompensa. El objetivo final es construir 2-3 bundles ganadores 
+        para el A/B/n conductual.
+      </p>
+      <h3>Estructura (9 secciones, ~10-12 min por respondente)</h3>
+      <ol>
+        <li>Bienvenida y consentimiento</li>
+        <li>Screener typing tool JI (edad, convivencia, hijo mayor)</li>
+        <li>Introducción al MaxDiff</li>
+        <li>MaxDiff · 6 tareas × 4 mensajes (BIBD)</li>
+        <li>Post-choice MaxDiff · 1 Likert credibilidad</li>
+        <li>Introducción al CBC</li>
+        <li>CBC · 10 tareas × 3 packs + 'Ninguno' (D-óptimo balanceado, alt-specific magnitud)</li>
+        <li>Post-choice CBC · 3 Likert (diferenciación, relevancia, credibilidad)</li>
+        <li>Cierre + campo opcional de correo</li>
+      </ol>
+      <div class="callout">
+        <strong>URL de la app:</strong>
+         
+        <a href="https://surveylvl.shinyapps.io/sip-ji-maxdiff/">https://surveylvl.shinyapps.io/sip-ji-maxdiff/</a>
+      </div>
+    </div>
+    <div class="section">
+      <h2>2. MaxDiff · pantalla real de la encuesta</h2>
+      <p>
+        Layout de 3 columnas: MÁS me motiva (izquierda), mensaje (centro), MENOS me motiva (derecha). 
+        La app bloquea automáticamente si el respondente intenta marcar el mismo mensaje en ambos lados.
+      </p>
+      <div class="screen-preview">
+        <div class="screen-caption">MaxDiff · Tarea 3 de 6 (ejemplo con seed=42)</div>
+        <div class="screen maxdiff-screen">
+          <div class="progress-hint">Tarea 3 de 6</div>
+          <div class="maxdiff-prompt-top">En cada fila marca el mensaje que MÁS te motivaría a usar Sip (izquierda) y el que MENOS te motivaría (derecha).</div>
+          <div class="maxdiff-3col-container" style="--maxdiff-n: 4;">
+            <div class="maxdiff-3col-header header-more">MÁS me motiva</div>
+            <div class="maxdiff-3col-header header-item">Mensaje</div>
+            <div class="maxdiff-3col-header header-less">MENOS me motiva</div>
+            <div class="maxdiff-3col-best-col">
+              <div class="shiny-options-group">
+                <div class="radio">
+                  <label>
+                    <input type="radio" disabled/>
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" disabled/>
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" disabled/>
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" disabled/>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="maxdiff-3col-items-col">
+              <div class="maxdiff-item-row">Cada sol que ahorras en superarte es un sol que puedes invertir en tu siguiente paso.</div>
+              <div class="maxdiff-item-row">Administrar bien tu dinero también significa darte permiso para disfrutar.</div>
+              <div class="maxdiff-item-row">Sip te da beneficios para que aproveches el finde.</div>
+              <div class="maxdiff-item-row">Las mejores decisiones son las que ya haces sin pensarlo.</div>
+            </div>
+            <div class="maxdiff-3col-worst-col">
+              <div class="shiny-options-group">
+                <div class="radio">
+                  <label>
+                    <input type="radio" disabled/>
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" disabled/>
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" disabled/>
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" disabled/>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="botonera">
+            <button class="btn btn-primary btn-lg" disabled>Continuar</button>
+          </div>
+        </div>
+      </div>
+      <p>
+        <em>
+          El pool tiene 6 conceptos (A-F) con 2 versiones cada uno que cambian una palabra clave: 
+          proteger↔cuidar, administrar↔manejar, sin pensarlo↔sin dudarlo, aprender↔superarte, 
+          disfrutar↔aprovechar, rutina↔práctica. Cada respondente ve una versión por concepto (BIBD 6-4-6).
+        </em>
+      </p>
+      <h3>Post-choice del MaxDiff (anclado)</h3>
+      <p>
+        Al terminar las 6 tareas, el sistema detecta el concepto que el respondente marcó más veces como MÁS y 
+        le muestra el texto exacto del mensaje que él vio. La pregunta de credibilidad se ancla a ese mensaje 
+        específico, no a 'los mensajes en general' (que sería vago).
+      </p>
+      <div class="screen-preview">
+        <div class="screen-caption">Post-choice MaxDiff · ejemplo con concepto ganador simulado</div>
+        <div class="screen">
+          <h3>Una última pregunta</h3>
+          <p>El mensaje que más veces marcaste como el que MÁS te motivaría a usar Sip fue:</p>
+          <div class="top-msg-quote">
+            <em>“Cuidaste lo importante primero. Ahora disfruta lo que queda.”</em>
+          </div>
+          <div class="form-group shiny-input-radiogroup">
+            <label>¿Qué tan creíble te parece que Sip pueda ofrecerte un mensaje así?</label>
+            <div class="shiny-options-group">
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                1 · Nada
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                2
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                3
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                4
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                5
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                6
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                7 · Mucho
+              </label>
+            </div>
+          </div>
+          <div class="botonera">
+            <button class="btn btn-primary btn-lg" disabled>Continuar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <h2>3. CBC · pantalla real de la encuesta</h2>
+      <p>
+        Cada tarea muestra 3 paquetes de recompensa + opción 'Ninguno'. Cada paquete combina 
+        6 atributos: comportamiento premiado, narrativa, tipo de recompensa (con magnitud fusionada), 
+        categoría y momento. La recompensa está destacada visualmente con fondo amarillo.
+      </p>
+      <div class="screen-preview">
+        <div class="screen-caption">CBC · Tarea 3 de 10 (ejemplo con seed=42, valores actuales v5)</div>
+        <div class="screen cbc-screen">
+          <div class="progress-hint">Tarea 3 de 10</div>
+          <div class="cbc-task-prompt">¿Cuál de estos paquetes te motivaría más a usar Sip?</div>
+          <div class="cbc-grid">
+            <div class="cbc-pack">
+              <div class="cbc-pack-header">Paquete A</div>
+              <div class="cbc-attr">
+                <div class="cbc-attr-icon">🎯</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">Por</div>
+                  <div class="cbc-attr-value">Invertir en educación y bienestar</div>
+                </div>
+              </div>
+              <div class="cbc-attr">
+                <div class="cbc-attr-icon">💬</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">Mensaje</div>
+                  <div class="cbc-attr-value">Disfrutar sin culpa</div>
+                </div>
+              </div>
+              <div class="cbc-attr cbc-attr-reward">
+                <div class="cbc-attr-icon">🎁</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">Recibes</div>
+                  <div class="cbc-attr-value">
+                    <strong>Cashback · 1%</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="cbc-attr">
+                <div class="cbc-attr-icon">🏷️</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">En</div>
+                  <div class="cbc-attr-value">Educación</div>
+                </div>
+              </div>
+              <div class="cbc-attr">
+                <div class="cbc-attr-icon">⏰</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">Cuándo</div>
+                  <div class="cbc-attr-value">Inmediato</div>
+                </div>
+              </div>
+            </div>
+            <div class="cbc-pack">
+              <div class="cbc-pack-header">Paquete B</div>
+              <div class="cbc-attr">
+                <div class="cbc-attr-icon">🎯</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">Por</div>
+                  <div class="cbc-attr-value">Uso recurrente</div>
+                </div>
+              </div>
+              <div class="cbc-attr">
+                <div class="cbc-attr-icon">💬</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">Mensaje</div>
+                  <div class="cbc-attr-value">Reconocimiento del esfuerzo</div>
+                </div>
+              </div>
+              <div class="cbc-attr cbc-attr-reward">
+                <div class="cbc-attr-icon">🎁</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">Recibes</div>
+                  <div class="cbc-attr-value">
+                    <strong>Beneficio progresivo/desbloqueable · S/25 en 4 sem</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="cbc-attr">
+                <div class="cbc-attr-icon">🏷️</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">En</div>
+                  <div class="cbc-attr-value">Bienestar</div>
+                </div>
+              </div>
+              <div class="cbc-attr">
+                <div class="cbc-attr-icon">⏰</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">Cuándo</div>
+                  <div class="cbc-attr-value">Fin de semana</div>
+                </div>
+              </div>
+            </div>
+            <div class="cbc-pack">
+              <div class="cbc-pack-header">Paquete C</div>
+              <div class="cbc-attr">
+                <div class="cbc-attr-icon">🎯</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">Por</div>
+                  <div class="cbc-attr-value">Mantener ahorro protegido</div>
+                </div>
+              </div>
+              <div class="cbc-attr">
+                <div class="cbc-attr-icon">💬</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">Mensaje</div>
+                  <div class="cbc-attr-value">Progreso personal</div>
+                </div>
+              </div>
+              <div class="cbc-attr cbc-attr-reward">
+                <div class="cbc-attr-icon">🎁</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">Recibes</div>
+                  <div class="cbc-attr-value">
+                    <strong>Cashback · 5%</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="cbc-attr">
+                <div class="cbc-attr-icon">🏷️</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">En</div>
+                  <div class="cbc-attr-value">Comida/café</div>
+                </div>
+              </div>
+              <div class="cbc-attr">
+                <div class="cbc-attr-icon">⏰</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">Cuándo</div>
+                  <div class="cbc-attr-value">Después de 30 días</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cbc-choice">
+            <div class="shiny-input-radiogroup">
+              <div class="shiny-options-group">
+                <div class="radio">
+                  <label>
+                    <input type="radio" disabled/>
+                     Paquete A
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" disabled/>
+                     Paquete B
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" disabled/>
+                     Paquete C
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" disabled/>
+                     Ninguno
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="botonera">
+            <button class="btn btn-primary btn-lg" disabled>Continuar</button>
+          </div>
+        </div>
+      </div>
+      <h3>Atributos y niveles del CBC (valores actuales v5)</h3>
+      <table class="results-table attr-table">
+        <thead>
+          <tr>
+            <th>Atributo</th>
+            <th>Niveles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>Comportamiento premiado</strong>
+            </td>
+            <td>Separar ingresos &nbsp;·&nbsp; Ahorro protegido &nbsp;·&nbsp; Cumplir presupuesto &nbsp;·&nbsp; Invertir en educación y bienestar &nbsp;·&nbsp; Uso recurrente</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Narrativa</strong>
+            </td>
+            <td>Reconocimiento del esfuerzo &nbsp;·&nbsp; Disfrutar sin culpa &nbsp;·&nbsp; Progreso personal &nbsp;·&nbsp; Constancia/hábito &nbsp;·&nbsp; Beneficio cotidiano</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Tipo de recompensa</strong>
+            </td>
+            <td>Cashback &nbsp;·&nbsp; Descuento &nbsp;·&nbsp; Beneficio en ecosistema &nbsp;·&nbsp; Beneficio progresivo/desbloqueable</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Categoría</strong>
+            </td>
+            <td>Educación &nbsp;·&nbsp; Entretenimiento &nbsp;·&nbsp; Comida/café &nbsp;·&nbsp; Streaming &nbsp;·&nbsp; Bienestar</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Momento</strong>
+            </td>
+            <td>Inmediato &nbsp;·&nbsp; Fin de semana &nbsp;·&nbsp; Fin de mes &nbsp;·&nbsp; Después de 30 días</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Magnitud</strong>
+              <br/>
+              <small>
+                <em>alt-specific por Tipo, con pisos bajos</em>
+              </small>
+            </td>
+            <td>
+              <table class="magnitud-subtable">
+                <tr>
+                  <td>
+                    <strong>Cashback</strong>
+                  </td>
+                  <td>1%</td>
+                  <td>3%</td>
+                  <td>5%</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Descuento</strong>
+                  </td>
+                  <td>S/1</td>
+                  <td>S/10</td>
+                  <td>S/25</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Ecosistema</strong>
+                  </td>
+                  <td>~S/5</td>
+                  <td>~S/20</td>
+                  <td>~S/50</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Progresivo</strong>
+                  </td>
+                  <td>S/5</td>
+                  <td>S/25</td>
+                  <td>S/60</td>
+                  <td style="color:#6c757d;font-size:0.85em;">
+                    <em>acumulable en 4 semanas</em>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Prohibited pairs (contradicciones lógicas excluidas del diseño)</h3>
+      <ul>
+        <li>Progresivo × Inmediato (algo que se acumula no llega hoy)</li>
+        <li>Invertir en educación y bienestar × Streaming (incoherencia narrativa)</li>
+        <li>Invertir en educación y bienestar × Entretenimiento (misma lógica)</li>
+      </ul>
+      <h3>Post-choice del CBC (anclado a pack prototípico)</h3>
+      <p>
+        Al terminar las 10 tareas, el sistema construye el 'pack prototípico' del respondente: 
+        para cada uno de los 6 atributos, toma el nivel más elegido entre los packs que el respondente 
+        efectivamente seleccionó. El resultado es la combinación que mejor representa las preferencias del 
+        respondente. Las 3 preguntas Likert se anclan a ese pack concreto, no a 'la propuesta en general' 
+        (que sería vago tras haber visto 30 packs distintos).
+      </p>
+      <div class="screen-preview">
+        <div class="screen-caption">Post-choice CBC · ejemplo con pack prototípico</div>
+        <div class="screen">
+          <h3>Tres preguntas sobre lo que viste</h3>
+          <p>Combinando los paquetes que más elegiste, este es el paquete que te motivaría más a usar Sip:</p>
+          <div class="cbc-prototype-wrapper">
+            <div class="cbc-pack cbc-pack-prototype">
+              <div class="cbc-pack-header">El paquete que te motivaría más</div>
+              <div class="cbc-attr">
+                <div class="cbc-attr-icon">🎯</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">Por</div>
+                  <div class="cbc-attr-value">Cumplir presupuesto</div>
+                </div>
+              </div>
+              <div class="cbc-attr">
+                <div class="cbc-attr-icon">💬</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">Mensaje</div>
+                  <div class="cbc-attr-value">Reconocimiento del esfuerzo</div>
+                </div>
+              </div>
+              <div class="cbc-attr cbc-attr-reward">
+                <div class="cbc-attr-icon">🎁</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">Recibes</div>
+                  <div class="cbc-attr-value">
+                    <strong>Cashback · 5%</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="cbc-attr">
+                <div class="cbc-attr-icon">🏷️</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">En</div>
+                  <div class="cbc-attr-value">Comida/café</div>
+                </div>
+              </div>
+              <div class="cbc-attr">
+                <div class="cbc-attr-icon">⏰</div>
+                <div class="cbc-attr-body">
+                  <div class="cbc-attr-label">Cuándo</div>
+                  <div class="cbc-attr-value">Al fin de mes</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Si Sip te ofreciera este paquete, ¿qué tan diferente se sentiría Sip frente a otras billeteras?</label>
+            <div class="shiny-options-group">
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                1 · Nada
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                2
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                3
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                4
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                5
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                6
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                7 · Mucho
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>¿Qué tan relevante es este paquete para ti?</label>
+            <div class="shiny-options-group">
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                1 · Nada
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                2
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                3
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                4
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                5
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                6
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                7 · Mucho
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>¿Qué tan creíble te parece que Sip pueda ofrecértelo?</label>
+            <div class="shiny-options-group">
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                1 · Nada
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                2
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                3
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                4
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                5
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                6
+              </label>
+              <label class="radio-inline">
+                <input type="radio" disabled/>
+                 
+                7 · Mucho
+              </label>
+            </div>
+          </div>
+          <div class="botonera">
+            <button class="btn btn-primary btn-lg" disabled>Continuar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <h2>4. Validación analítica</h2>
+      <p>
+        Simulé N=
+        500
+         respondentes heterogéneos con utilidades verdaderas conocidas 
+        (heterogeneidad en narrativa sd=0.7, otros atributos sd=0.3) y sus respuestas al MaxDiff + CBC. 
+        Luego corrí 3 modelos sobre la data simulada para verificar que el diseño resiste el análisis real.
+      </p>
+      <h3>4.1 · Estadísticos descriptivos</h3>
+      <div class="metric">
+        <strong>N respondentes:</strong>
+         
+        500
+      </div>
+      <div class="metric">
+        <strong>Tareas CBC válidas:</strong>
+         
+        4882
+         de 
+        5000
+      </div>
+      <div class="metric">
+        <strong>% eligió 'Ninguno':</strong>
+         
+        2.4
+        %
+      </div>
+      <div class="metric">
+        <strong>Distribución elecciones por Tipo:</strong>
+         
+        T1=22.7%, T2=26.7%, T3=31.5%, T4=19.1
+        %
+      </div>
+      <h3>4.2 · Modelo MNL agregado (baseline)</h3>
+      <div class="metric">
+        <strong>Log-Lik:</strong>
+         
+        -4839.6
+      </div>
+      <div class="metric">
+        <strong>AIC:</strong>
+         
+        9719.2
+      </div>
+      <table class="results-table">
+        <caption>Coeficientes MNL agregado</caption>
+        <thead>
+          <tr>
+            <th>Coef</th>
+            <th>Estimate</th>
+            <th>Std. Error</th>
+            <th>z-value</th>
+            <th>Pr(&gt;|z|)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>comportamientoC2</td>
+            <td>0.245</td>
+            <td>0.053</td>
+            <td>4.617</td>
+            <td>3.90e-06</td>
+          </tr>
+          <tr>
+            <td>comportamientoC3</td>
+            <td>0.348</td>
+            <td>0.053</td>
+            <td>6.603</td>
+            <td>4.04e-11</td>
+          </tr>
+          <tr>
+            <td>comportamientoC4</td>
+            <td>-0.147</td>
+            <td>0.06</td>
+            <td>-2.452</td>
+            <td>0.01420</td>
+          </tr>
+          <tr>
+            <td>comportamientoC5</td>
+            <td>-0.296</td>
+            <td>0.056</td>
+            <td>-5.274</td>
+            <td>1.33e-07</td>
+          </tr>
+          <tr>
+            <td>narrativaN2</td>
+            <td>0.269</td>
+            <td>0.054</td>
+            <td>4.942</td>
+            <td>7.74e-07</td>
+          </tr>
+          <tr>
+            <td>narrativaN3</td>
+            <td>0.154</td>
+            <td>0.055</td>
+            <td>2.775</td>
+            <td>0.00552</td>
+          </tr>
+          <tr>
+            <td>narrativaN4</td>
+            <td>0.339</td>
+            <td>0.055</td>
+            <td>6.221</td>
+            <td>4.95e-10</td>
+          </tr>
+          <tr>
+            <td>narrativaN5</td>
+            <td>0.045</td>
+            <td>0.056</td>
+            <td>0.796</td>
+            <td>0.42620</td>
+          </tr>
+          <tr>
+            <td>tipoT2</td>
+            <td>0.225</td>
+            <td>0.048</td>
+            <td>4.736</td>
+            <td>2.18e-06</td>
+          </tr>
+          <tr>
+            <td>tipoT3</td>
+            <td>0.461</td>
+            <td>0.047</td>
+            <td>9.854</td>
+            <td>&lt; 2e-16</td>
+          </tr>
+          <tr>
+            <td>tipoT4</td>
+            <td>-0.23</td>
+            <td>0.053</td>
+            <td>-4.343</td>
+            <td>1.41e-05</td>
+          </tr>
+          <tr>
+            <td>categoriaK2</td>
+            <td>0.331</td>
+            <td>0.058</td>
+            <td>5.709</td>
+            <td>1.14e-08</td>
+          </tr>
+          <tr>
+            <td>categoriaK3</td>
+            <td>0.483</td>
+            <td>0.055</td>
+            <td>8.753</td>
+            <td>&lt; 2e-16</td>
+          </tr>
+          <tr>
+            <td>categoriaK4</td>
+            <td>0.321</td>
+            <td>0.058</td>
+            <td>5.557</td>
+            <td>2.74e-08</td>
+          </tr>
+          <tr>
+            <td>categoriaK5</td>
+            <td>0.178</td>
+            <td>0.056</td>
+            <td>3.145</td>
+            <td>0.00166</td>
+          </tr>
+          <tr>
+            <td>momentoM2</td>
+            <td>0.337</td>
+            <td>0.049</td>
+            <td>6.942</td>
+            <td>3.87e-12</td>
+          </tr>
+          <tr>
+            <td>momentoM3</td>
+            <td>0.081</td>
+            <td>0.05</td>
+            <td>1.644</td>
+            <td>0.10017</td>
+          </tr>
+          <tr>
+            <td>momentoM4</td>
+            <td>-0.247</td>
+            <td>0.051</td>
+            <td>-4.836</td>
+            <td>1.33e-06</td>
+          </tr>
+          <tr>
+            <td>magnitudMG2</td>
+            <td>0.475</td>
+            <td>0.041</td>
+            <td>11.634</td>
+            <td>&lt; 2e-16</td>
+          </tr>
+          <tr>
+            <td>magnitudMG3</td>
+            <td>0.722</td>
+            <td>0.04</td>
+            <td>18.288</td>
+            <td>&lt; 2e-16</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>4.3 · MNL con interacción Tipo × Magnitud</h3>
+      <div class="metric">
+        <strong>Log-Lik:</strong>
+         
+        -4831.3
+      </div>
+      <div class="metric">
+        <strong>LR test vs baseline:</strong>
+         stat=
+        16.56
+         df=
+        6
+         p=
+        0.011
+      </div>
+      <div class="callout callout-good">Interacción Tipo × Magnitud SÍ aporta información. Con data real, correr el modelo con interacciones evita perder señal sobre cómo la sensibilidad al monto varía por Tipo.</div>
+      <table class="results-table">
+        <caption>Coeficientes MNL + interacción Tipo × Magnitud (subset)</caption>
+        <thead>
+          <tr>
+            <th>Coef</th>
+            <th>Estimate</th>
+            <th>Std. Error</th>
+            <th>z-value</th>
+            <th>Pr(&gt;|z|)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>comportamientoC2</td>
+            <td>0.249</td>
+            <td>0.053</td>
+            <td>4.677</td>
+            <td>2.91e-06</td>
+          </tr>
+          <tr>
+            <td>comportamientoC3</td>
+            <td>0.351</td>
+            <td>0.053</td>
+            <td>6.648</td>
+            <td>2.98e-11</td>
+          </tr>
+          <tr>
+            <td>comportamientoC4</td>
+            <td>-0.147</td>
+            <td>0.06</td>
+            <td>-2.457</td>
+            <td>0.01401</td>
+          </tr>
+          <tr>
+            <td>comportamientoC5</td>
+            <td>-0.294</td>
+            <td>0.056</td>
+            <td>-5.219</td>
+            <td>1.80e-07</td>
+          </tr>
+          <tr>
+            <td>narrativaN2</td>
+            <td>0.265</td>
+            <td>0.055</td>
+            <td>4.867</td>
+            <td>1.13e-06</td>
+          </tr>
+          <tr>
+            <td>narrativaN3</td>
+            <td>0.153</td>
+            <td>0.055</td>
+            <td>2.754</td>
+            <td>0.00588</td>
+          </tr>
+          <tr>
+            <td>narrativaN4</td>
+            <td>0.337</td>
+            <td>0.055</td>
+            <td>6.164</td>
+            <td>7.08e-10</td>
+          </tr>
+          <tr>
+            <td>narrativaN5</td>
+            <td>0.043</td>
+            <td>0.056</td>
+            <td>0.763</td>
+            <td>0.44537</td>
+          </tr>
+          <tr>
+            <td>tipoT2</td>
+            <td>0.16</td>
+            <td>0.101</td>
+            <td>1.579</td>
+            <td>0.11437</td>
+          </tr>
+          <tr>
+            <td>tipoT3</td>
+            <td>0.265</td>
+            <td>0.099</td>
+            <td>2.681</td>
+            <td>0.00735</td>
+          </tr>
+          <tr>
+            <td>tipoT4</td>
+            <td>-0.154</td>
+            <td>0.108</td>
+            <td>-1.428</td>
+            <td>0.15326</td>
+          </tr>
+          <tr>
+            <td>magnitudMG2</td>
+            <td>0.296</td>
+            <td>0.097</td>
+            <td>3.059</td>
+            <td>0.00222</td>
+          </tr>
+          <tr>
+            <td>magnitudMG3</td>
+            <td>0.729</td>
+            <td>0.095</td>
+            <td>7.666</td>
+            <td>1.78e-14</td>
+          </tr>
+          <tr>
+            <td>categoriaK2</td>
+            <td>0.327</td>
+            <td>0.058</td>
+            <td>5.629</td>
+            <td>1.81e-08</td>
+          </tr>
+          <tr>
+            <td>categoriaK3</td>
+            <td>0.48</td>
+            <td>0.055</td>
+            <td>8.677</td>
+            <td>&lt; 2e-16</td>
+          </tr>
+          <tr>
+            <td>categoriaK4</td>
+            <td>0.318</td>
+            <td>0.058</td>
+            <td>5.489</td>
+            <td>4.04e-08</td>
+          </tr>
+          <tr>
+            <td>categoriaK5</td>
+            <td>0.173</td>
+            <td>0.057</td>
+            <td>3.053</td>
+            <td>0.00226</td>
+          </tr>
+          <tr>
+            <td>momentoM2</td>
+            <td>0.339</td>
+            <td>0.049</td>
+            <td>6.955</td>
+            <td>3.53e-12</td>
+          </tr>
+          <tr>
+            <td>momentoM3</td>
+            <td>0.083</td>
+            <td>0.05</td>
+            <td>1.676</td>
+            <td>0.09368</td>
+          </tr>
+          <tr>
+            <td>momentoM4</td>
+            <td>-0.246</td>
+            <td>0.051</td>
+            <td>-4.8</td>
+            <td>1.58e-06</td>
+          </tr>
+          <tr>
+            <td>tipoT2:magnitudMG2</td>
+            <td>0.245</td>
+            <td>0.14</td>
+            <td>1.757</td>
+            <td>0.07886</td>
+          </tr>
+          <tr>
+            <td>tipoT3:magnitudMG2</td>
+            <td>0.365</td>
+            <td>0.138</td>
+            <td>2.653</td>
+            <td>0.00797</td>
+          </tr>
+          <tr>
+            <td>tipoT4:magnitudMG2</td>
+            <td>0.04</td>
+            <td>0.145</td>
+            <td>0.274</td>
+            <td>0.78396</td>
+          </tr>
+          <tr>
+            <td>tipoT2:magnitudMG3</td>
+            <td>-0.055</td>
+            <td>0.138</td>
+            <td>-0.396</td>
+            <td>0.69198</td>
+          </tr>
+          <tr>
+            <td>tipoT3:magnitudMG3</td>
+            <td>0.196</td>
+            <td>0.137</td>
+            <td>1.432</td>
+            <td>0.15227</td>
+          </tr>
+          <tr>
+            <td>tipoT4:magnitudMG3</td>
+            <td>-0.227</td>
+            <td>0.143</td>
+            <td>-1.586</td>
+            <td>0.11281</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>4.4 · Mixed logit (heterogeneidad en preferencias)</h3>
+      <div class="metric">
+        <strong>Log-Lik:</strong>
+         
+        -4775.5
+      </div>
+      <div class="metric">
+        <strong>LR test vs MNL:</strong>
+         stat=
+        102.38
+         df=
+        4
+         p=
+        &lt;2e-16
+      </div>
+      <div class="callout callout-good">
+        Heterogeneidad detectada: los respondentes difieren significativamente en sus preferencias por narrativa. 
+        El modelo agregado (MNL) subestima el poder explicativo. Con data real, correr HB (bayesm::rhierMnlRwMixture o RSGHB) para obtener utilidades por respondente y permitir segmentación fina.
+      </div>
+      <h4>Desviaciones estándar de coeficientes aleatorios (narrativa)</h4>
+      <p>
+        <em>
+          Estas SDs miden cuánto varían las preferencias por narrativa entre respondentes. 
+          Un SD grande = mucha heterogeneidad = distintos JIs prefieren distintas narrativas.
+        </em>
+      </p>
+      <table class="results-table">
+        <caption>SDs de random coefficients</caption>
+        <thead>
+          <tr>
+            <th>Coef</th>
+            <th>Estimate</th>
+            <th>Std. Error</th>
+            <th>z-value</th>
+            <th>Pr(&gt;|z|)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>sd.narrativaN2</td>
+            <td>0.667</td>
+            <td>0.101</td>
+            <td>6.632</td>
+            <td>3.31e-11</td>
+          </tr>
+          <tr>
+            <td>sd.narrativaN3</td>
+            <td>0.594</td>
+            <td>0.113</td>
+            <td>5.262</td>
+            <td>1.42e-07</td>
+          </tr>
+          <tr>
+            <td>sd.narrativaN4</td>
+            <td>0.715</td>
+            <td>0.095</td>
+            <td>7.509</td>
+            <td>5.95e-14</td>
+          </tr>
+          <tr>
+            <td>sd.narrativaN5</td>
+            <td>0.426</td>
+            <td>0.132</td>
+            <td>3.23</td>
+            <td>0.00124</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>4.5 · Cross MaxDiff × CBC (segmentación por narrativa preferida)</h3>
+      <p>
+        Cada respondente eligió su narrativa preferida en el MaxDiff (concepto con mayor best-worst score). 
+        Segmentamos a los respondentes por narrativa preferida y corrimos MNL por segmento para ver 
+        si sus preferencias en el CBC cambian según su preferencia narrativa. Este análisis 
+        es el 'gold standard' de triangulación MaxDiff × CBC.
+      </p>
+      <p>
+        <strong>Distribución del concepto ganador MaxDiff:</strong>
+         
+        A=80 · B=135 · C=119 · D=73 · E=50 · F=43
+      </p>
+      <h4>Coeficientes de Tipo por segmento</h4>
+      <p>
+        <em>
+          Cada segmento corresponde a los respondentes cuya narrativa preferida en MaxDiff es la indicada. 
+          El coeficiente muestra utilidad de cada Tipo relativa a Cashback (T1) dentro de ese segmento.
+        </em>
+      </p>
+      <div>
+        <h5>Segmento N1 (narrativa preferida = Reconocimiento del esfuerzo)</h5>
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Coef</th>
+              <th>Estimate</th>
+              <th>Std. Error</th>
+              <th>z-value</th>
+              <th>Pr(&gt;|z|)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>T2</td>
+              <td>0.251</td>
+              <td>0.119</td>
+              <td>2.099</td>
+              <td>0.0358</td>
+            </tr>
+            <tr>
+              <td>T3</td>
+              <td>0.667</td>
+              <td>0.118</td>
+              <td>5.658</td>
+              <td>1.53e-08</td>
+            </tr>
+            <tr>
+              <td>T4</td>
+              <td>-0.337</td>
+              <td>0.132</td>
+              <td>-2.561</td>
+              <td>0.0104</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h5>Segmento N3 (narrativa preferida = Progreso personal)</h5>
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Coef</th>
+              <th>Estimate</th>
+              <th>Std. Error</th>
+              <th>z-value</th>
+              <th>Pr(&gt;|z|)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>T2</td>
+              <td>0.11</td>
+              <td>0.121</td>
+              <td>0.905</td>
+              <td>0.365532</td>
+            </tr>
+            <tr>
+              <td>T3</td>
+              <td>0.401</td>
+              <td>0.117</td>
+              <td>3.42</td>
+              <td>0.000626</td>
+            </tr>
+            <tr>
+              <td>T4</td>
+              <td>-0.242</td>
+              <td>0.128</td>
+              <td>-1.888</td>
+              <td>0.059006</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h5>Segmento N5 (narrativa preferida = Beneficio cotidiano)</h5>
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Coef</th>
+              <th>Estimate</th>
+              <th>Std. Error</th>
+              <th>z-value</th>
+              <th>Pr(&gt;|z|)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>T2</td>
+              <td>0.266</td>
+              <td>0.11</td>
+              <td>2.412</td>
+              <td>0.0159</td>
+            </tr>
+            <tr>
+              <td>T3</td>
+              <td>0.491</td>
+              <td>0.108</td>
+              <td>4.551</td>
+              <td>5.34e-06</td>
+            </tr>
+            <tr>
+              <td>T4</td>
+              <td>-0.087</td>
+              <td>0.115</td>
+              <td>-0.757</td>
+              <td>0.4490</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h5>Segmento N2 (narrativa preferida = Disfrutar sin culpa)</h5>
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Coef</th>
+              <th>Estimate</th>
+              <th>Std. Error</th>
+              <th>z-value</th>
+              <th>Pr(&gt;|z|)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>T2</td>
+              <td>0.249</td>
+              <td>0.089</td>
+              <td>2.81</td>
+              <td>0.004959</td>
+            </tr>
+            <tr>
+              <td>T3</td>
+              <td>0.337</td>
+              <td>0.089</td>
+              <td>3.789</td>
+              <td>0.000151</td>
+            </tr>
+            <tr>
+              <td>T4</td>
+              <td>-0.153</td>
+              <td>0.094</td>
+              <td>-1.624</td>
+              <td>0.104339</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h5>Segmento N4 (narrativa preferida = Constancia/hábito)</h5>
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Coef</th>
+              <th>Estimate</th>
+              <th>Std. Error</th>
+              <th>z-value</th>
+              <th>Pr(&gt;|z|)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>T2</td>
+              <td>0.141</td>
+              <td>0.094</td>
+              <td>1.489</td>
+              <td>0.1365</td>
+            </tr>
+            <tr>
+              <td>T3</td>
+              <td>0.391</td>
+              <td>0.093</td>
+              <td>4.224</td>
+              <td>2.4e-05</td>
+            </tr>
+            <tr>
+              <td>T4</td>
+              <td>-0.195</td>
+              <td>0.1</td>
+              <td>-1.945</td>
+              <td>0.0518</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout callout-good">
+        <strong>Interpretación:</strong>
+         los coeficientes de Tipo varían entre segmentos, 
+        confirmando que la narrativa preferida del MaxDiff se cruza con las preferencias del CBC. 
+        En data real este análisis permite construir bundles diferenciados por 'perfil narrativo' del JI, 
+        no un solo bundle homogéneo.
+      </div>
+    </div>
+    <div class="section">
+      <h2>5. Decisiones metodológicas clave</h2>
+      <h3>Por qué pisos bajos en Magnitud</h3>
+      <p>Los niveles piso (S/1 Descuento, S/5 Ecosistema, S/5 Progresivo) son deliberadamente bajos para permitir:</p>
+      <ul>
+        <li>
+          <strong>Detección de threshold:</strong>
+           ¿existe un umbral abajo del cual la utilidad se cae a cero? 
+          Si sí, Sip ahorra presupuesto no ofreciendo montos que no rinden.
+        </li>
+        <li>
+          <strong>Curvatura (diminishing returns):</strong>
+           si subir del medio al techo aporta poco, 
+          Sip elige el medio y escala más usuarios con el mismo presupuesto.
+        </li>
+        <li>
+          <strong>Realismo de mercado:</strong>
+           apps peruanas ya ofrecen cupones de S/1-3 en promos; 
+          no es un piso artificial.
+        </li>
+      </ul>
+      <h3>Alt-specific magnitud</h3>
+      <p>
+        Los niveles de magnitud son distintos por Tipo (Cashback en %, Descuento en S/, etc.). 
+        El diseño CBC respeta esa estructura y el análisis debe hacerlo también. 
+        La columna 
+        <code>magnitud</code>
+         en la matriz guarda etiquetas MG1/MG2/MG3 
+        que NO son directamente comparables entre Tipos.
+      </p>
+      <div class="callout callout-warn">
+        <strong>Nota analítica:</strong>
+         un HB que estime un coef de 
+        <code>magnitud</code>
+         como main effect sin cruzarlo con 
+        <code>tipo</code>
+         devuelve un pooled meaningless. Al analizar data real, estimar la interacción 
+        <code>tipo × magnitud</code>
+         o recodificar magnitud como ordinal per-tipo.
+      </div>
+      <h3>Prohibited pairs</h3>
+      <p>
+        Solo 3 pairs por contradicciones lógicas puras. NO se prohíbe 
+        <code>Progresivo × Después de 30 días</code>
+         porque la ventana 
+        <code>w1=4 sem</code>
+         y el momento 
+        <code>30 días</code>
+         son plazos distintos que pueden coexistir coherentemente.
+      </p>
+      <h3>Anclaje de las preguntas post-choice</h3>
+      <p>
+        Tanto el post-choice del MaxDiff (1 pregunta de credibilidad) como el del CBC 
+        (3 preguntas de diferenciación, relevancia y credibilidad) se anclan a un objeto concreto 
+        en lugar de referirse a 'los mensajes en general' o 'la propuesta en general'. La razón:
+      </p>
+      <ul>
+        <li>
+          Después de 6 tareas MaxDiff (24 exposiciones a 12 variantes de mensaje) o 10 tareas CBC (30 packs distintos), 
+          el respondente no recuerda con precisión qué vio. Una pregunta vaga produce respuestas de baja calidad.
+        </li>
+        <li>
+          Anclar a la elección del propio respondente (mensaje más votado en MaxDiff, pack prototípico en CBC) 
+          convierte la respuesta en un juicio informado y específico.
+        </li>
+      </ul>
+      <p>
+        Implementación: en el 
+        <code>mod_postchoice.R</code>
+         y 
+        <code>mod_cbc_postchoice.R</code>
+         el sistema computa el objeto ancla en un 
+        <code>reactive({...})</code>
+         y lo renderiza como cita destacada (mensaje MaxDiff) o mini tarjeta (pack CBC) antes de las Likert.
+      </p>
+      <h3>Decisión metodológica pendiente: alimentar el CBC con MaxDiff</h3>
+      <p>
+        Existe la opción de fijar la narrativa ganadora del MaxDiff como framing constante de los packs del CBC (adaptive), 
+        en lugar de tener Narrativa como atributo variable. Trade-off:
+      </p>
+      <ul>
+        <li>
+          <strong>Pro: </strong>
+          personalización por respondente, menos ruido, bundles finales más accionables por segmento narrativo.
+        </li>
+        <li>
+          <strong>Con: </strong>
+          se pierde la interacción narrativa × recompensa, cada respondente ve solo 1 narrativa (menos data por celda), 
+          requiere que Sip pueda operacionalizar la personalización en el A/B.
+        </li>
+      </ul>
+      <p>
+        Estado actual del instrumento: 
+        <strong>Opción C · no adaptive</strong>
+        . La narrativa es un atributo variable del CBC (5 niveles) y el cruce MaxDiff × CBC se hace en el análisis post-hoc (validado en Sección 4.5).
+      </p>
+    </div>
+    <footer class="section" style="text-align:center;color:#6c757d;font-size:0.85rem;">
+      <p>LVL · Generado con R + htmltools + módulos Shiny de la app deployada</p>
+    </footer>
+  </body>
+</html>
+</html>
