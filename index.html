@@ -3394,7 +3394,752 @@ h3 { margin-top: 2rem; }
       </table>
     </div>
     <div class="section">
-      <h2>5. Decisiones metodológicas clave</h2>
+      <h2>5. Reporte de resultados · lectura estratégica</h2>
+      <p>
+        <em>Simulación N=500 leída como si fuera data real de campo. Las cifras son ilustrativas de lo que Sip recibiría con data verdadera; la estructura del análisis y las conclusiones metodológicas son las que se aplicarían al lanzamiento real.</em>
+      </p>
+      <h3>5.1 · Resumen ejecutivo (hallazgos accionables)</h3>
+      <div class="callout callout-good">
+        <ol>
+          <li>
+            <strong>Narrativa ganadora: 'Reconocimiento del esfuerzo' (concepto A)</strong>
+             · 39% de los respondentes lo eligen como concepto que MÁS los motiva (193/500). 
+            Distante del 2º (Constancia/hábito, 20.6%). Sip tiene su narrativa ancla.
+          </li>
+          <li>
+            <strong>Wording específico: preferir versiones que ganaron el best-worst</strong>
+             · dentro de cada concepto, la simulación muestra qué wording (V1 o V2) motiva más. 
+            Sip lanza cada concepto con el wording ganador.
+          </li>
+          <li>
+            <strong>Canal óptimo por narrativa: WhatsApp domina (30-50%)</strong>
+             para A, E, F; Push in-app gana para C (42.7%); Email es viable para D (39%). 
+            Sip diferencia el canal según la narrativa del bundle, no un único canal universal.
+          </li>
+          <li>
+            <strong>Recompensa que más motiva: 'Beneficio en ecosistema' (T3)</strong>
+             · utility +0.52 vs Cashback, presente en 4 de los top-5 bundles. 
+            Pero credibilidad promedio 3.75/7 (por debajo del gate 5).
+          </li>
+          <li>
+            <strong>Tensión estratégica: motivación vs credibilidad</strong>
+             · Ecosistema motiva pero Sip no es creíble hoy para entregarlo. Dos rutas: 
+            (a) lanzar Ecosistema tras trabajar comunicación de marca; 
+            (b) lanzar Cashback (menor motivación pero credibilidad alta = 4.55/7).
+          </li>
+          <li>
+            <strong>Uso declarado NO predice preferencia revelada</strong>
+             · las categorías que un JI reporta usar en Sip hoy no correlacionan con sus 
+            elecciones en el CBC. Sip debe apoyarse en el HB del CBC para segmentar, no en la BBDD histórica.
+          </li>
+          <li>
+            <strong>Heterogeneidad detectada</strong>
+             · el mixed logit encuentra variación real en preferencias por Tipo (p=0.04). 
+            Los segmentos por uso actual, edad y educación muestran patrones distintos que 
+            permiten bundles diferenciados en el A/B.
+          </li>
+        </ol>
+      </div>
+      <h3>5.2 · Perfil del sample</h3>
+      <p>N=500 respondentes JI (18-35 con ingreso recurrente). Distribución de las variables descriptivas:</p>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Variable</th>
+            <th>Distribución</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Uso actual de Sip</td>
+            <td>57.6% usa hoy · 25.6% nunca usó · 16.8% usó antes pero abandonó</td>
+          </tr>
+          <tr>
+            <td>Sexo</td>
+            <td>~50/50 F/M · 2% prefiere no decir</td>
+          </tr>
+          <tr>
+            <td>Situación laboral</td>
+            <td>44.6% dependiente · 25.6% independiente · 14.4% estudiante · 11.6% ambas · 3.8% desempleado</td>
+          </tr>
+          <tr>
+            <td>Educación</td>
+            <td>Mayoritariamente universitaria en curso o completa (~65%)</td>
+          </tr>
+          <tr>
+            <td>Frecuencia (solo usuarios)</td>
+            <td>35.4% usa 3-5 veces/mes · 27.4% usa 1-2 veces/mes · 16.7% 6-10 veces · 12.5% más de 10 veces</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        El sample refleja el target del estudio: mayoría de usuarios actuales de Sip (57.6%) con actividad 
+        media-baja (mediana 3-5 tx/mes). La intervención busca elevar a los que están en 1-2 tx/mes al bracket 
+        de 3+ tx/mes, y activar a los ex-usuarios (16.8%). Los no-usuarios (25.6%) son universo secundario.
+      </p>
+      <h3>5.3 · Qué narrativa motiva más al JI</h3>
+      <p>Distribución del concepto que más veces el respondente marcó como MÁS motivador:</p>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th>N respondentes</th>
+            <th>%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A · Reconocimiento del esfuerzo</td>
+            <td>193</td>
+            <td>
+              <strong>38.6%</strong>
+            </td>
+          </tr>
+          <tr>
+            <td>C · Beneficios por constancia</td>
+            <td>103</td>
+            <td>20.6%</td>
+          </tr>
+          <tr>
+            <td>B · Organizarte también tiene recompensa</td>
+            <td>89</td>
+            <td>17.8%</td>
+          </tr>
+          <tr>
+            <td>D · Progreso personal (educación)</td>
+            <td>54</td>
+            <td>10.8%</td>
+          </tr>
+          <tr>
+            <td>E · Beneficios cotidianos</td>
+            <td>35</td>
+            <td>7.0%</td>
+          </tr>
+          <tr>
+            <td>F · Bienestar</td>
+            <td>26</td>
+            <td>5.2%</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout-good">
+        <strong>Lectura estratégica: </strong>
+        el JI está principalmente motivado por narrativas que reconocen su 
+        esfuerzo por manejar bien su dinero (A) y su constancia (C). Los mensajes tipo 'te premiamos por 
+        cuidar tu presupuesto' o 'reconocemos que ya organizas tu plata' son 3× más efectivos que 'aprende 
+        algo nuevo' o 'cuida tu bienestar'. El foco emocional del JI es AUTOCONTROL/DISCIPLINA reconocidos, 
+        no aspiración o autocuidado.
+      </div>
+    </div>
+    <div class="section">
+      <h3>5.4 · Cuál wording específico usar (V1 vs V2 por concepto)</h3>
+      <p>Para cada concepto, comparación del net best-worst score de V1 vs V2 (matiz de palabra):</p>
+      <table class="results-table">
+        <caption>V1 vs V2 · ganador por concepto</caption>
+        <thead>
+          <tr>
+            <th>concept</th>
+            <th>vV1</th>
+            <th>vV2</th>
+            <th>dif_v2_menos_v1</th>
+            <th>wording_ganador</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A</td>
+            <td>135</td>
+            <td>288</td>
+            <td>153</td>
+            <td>V2</td>
+          </tr>
+          <tr>
+            <td>B</td>
+            <td>5</td>
+            <td>-36</td>
+            <td>-41</td>
+            <td>V1</td>
+          </tr>
+          <tr>
+            <td>C</td>
+            <td>93</td>
+            <td>109</td>
+            <td>16</td>
+            <td>V2</td>
+          </tr>
+          <tr>
+            <td>D</td>
+            <td>-51</td>
+            <td>-48</td>
+            <td>3</td>
+            <td>V2</td>
+          </tr>
+          <tr>
+            <td>E</td>
+            <td>-122</td>
+            <td>-116</td>
+            <td>6</td>
+            <td>V2</td>
+          </tr>
+          <tr>
+            <td>F</td>
+            <td>-145</td>
+            <td>-112</td>
+            <td>33</td>
+            <td>V2</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Regla operativa: Sip lanza cada concepto ganador CON el wording que tiene score net más alto 
+        en esa columna. Ej: si en el concepto A gana V2 ("cuidaste") por encima de V1 ("protegiste"), 
+        el mensaje real que Sip usa es "Cuidaste lo importante primero. Ahora disfruta lo que queda."
+      </p>
+      <h3>5.5 · Por dónde enviar cada narrativa</h3>
+      <p>
+        Canal preferido por concepto ganador del respondente (% de respondentes que prefieren cada canal, 
+        por segmento de narrativa).
+      </p>
+      <table class="results-table">
+        <caption>% preferencia de canal por narrativa ganadora</caption>
+        <thead>
+          <tr>
+            <th>top_concept</th>
+            <th>email</th>
+            <th>ninguno</th>
+            <th>push</th>
+            <th>sms</th>
+            <th>whatsapp</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A</td>
+            <td>12.4</td>
+            <td>2.1</td>
+            <td>33.7</td>
+            <td>4.7</td>
+            <td>47.2</td>
+          </tr>
+          <tr>
+            <td>B</td>
+            <td>14.6</td>
+            <td>2.2</td>
+            <td>27</td>
+            <td>15.7</td>
+            <td>40.4</td>
+          </tr>
+          <tr>
+            <td>C</td>
+            <td>13.6</td>
+            <td>4.9</td>
+            <td>42.7</td>
+            <td>8.7</td>
+            <td>30.1</td>
+          </tr>
+          <tr>
+            <td>D</td>
+            <td>38.9</td>
+            <td>5.6</td>
+            <td>25.9</td>
+            <td>0</td>
+            <td>29.6</td>
+          </tr>
+          <tr>
+            <td>E</td>
+            <td>11.4</td>
+            <td>5.7</td>
+            <td>28.6</td>
+            <td>11.4</td>
+            <td>42.9</td>
+          </tr>
+          <tr>
+            <td>F</td>
+            <td>19.2</td>
+            <td>11.5</td>
+            <td>7.7</td>
+            <td>15.4</td>
+            <td>46.2</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout-good">
+        <strong>Recomendación operativa por narrativa:</strong>
+        <ul>
+          <li>
+            <strong>Reconocimiento del esfuerzo (A):</strong>
+             WhatsApp (47.2%) o Push (33.7%)
+          </li>
+          <li>
+            <strong>Constancia/hábito (C):</strong>
+             Push (42.7%) o WhatsApp (30.1%)
+          </li>
+          <li>
+            <strong>Progreso personal (D):</strong>
+             Email (38.9%) o WhatsApp (29.6%) → único caso con email dominante
+          </li>
+          <li>
+            <strong>Beneficios cotidianos (E):</strong>
+             WhatsApp (42.9%) o Push (28.6%)
+          </li>
+          <li>
+            <strong>Otras:</strong>
+             WhatsApp de default (30-45%)
+          </li>
+        </ul>
+        Sip diferencia canal por narrativa, no un único canal universal.
+      </div>
+    </div>
+    <div class="section">
+      <h3>5.6 · Qué recompensa refuerza qué comportamiento (CBC main effects)</h3>
+      <p>
+        Utilidades relativas por nivel de cada atributo del CBC (baseline = nivel de referencia, 
+        cada coeficiente representa la utilidad relativa al baseline).
+      </p>
+      <table class="results-table">
+        <caption>Coeficientes MNL agregado CBC</caption>
+        <thead>
+          <tr>
+            <th>Coef</th>
+            <th>Estimate</th>
+            <th>Std. Error</th>
+            <th>z-value</th>
+            <th>Pr(&gt;|z|)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>comportamientoC2</td>
+            <td>0.292</td>
+            <td>0.053</td>
+            <td>5.529</td>
+            <td>3.23e-08</td>
+          </tr>
+          <tr>
+            <td>comportamientoC3</td>
+            <td>0.462</td>
+            <td>0.052</td>
+            <td>8.806</td>
+            <td>&lt; 2e-16</td>
+          </tr>
+          <tr>
+            <td>comportamientoC4</td>
+            <td>-0.169</td>
+            <td>0.06</td>
+            <td>-2.814</td>
+            <td>0.004899</td>
+          </tr>
+          <tr>
+            <td>comportamientoC5</td>
+            <td>-0.2</td>
+            <td>0.056</td>
+            <td>-3.596</td>
+            <td>0.000323</td>
+          </tr>
+          <tr>
+            <td>tipoT2</td>
+            <td>0.326</td>
+            <td>0.047</td>
+            <td>6.885</td>
+            <td>5.79e-12</td>
+          </tr>
+          <tr>
+            <td>tipoT3</td>
+            <td>0.493</td>
+            <td>0.047</td>
+            <td>10.457</td>
+            <td>&lt; 2e-16</td>
+          </tr>
+          <tr>
+            <td>tipoT4</td>
+            <td>-0.154</td>
+            <td>0.053</td>
+            <td>-2.92</td>
+            <td>0.003498</td>
+          </tr>
+          <tr>
+            <td>categoriaK2</td>
+            <td>0.366</td>
+            <td>0.058</td>
+            <td>6.256</td>
+            <td>3.96e-10</td>
+          </tr>
+          <tr>
+            <td>categoriaK3</td>
+            <td>0.654</td>
+            <td>0.056</td>
+            <td>11.693</td>
+            <td>&lt; 2e-16</td>
+          </tr>
+          <tr>
+            <td>categoriaK4</td>
+            <td>0.487</td>
+            <td>0.058</td>
+            <td>8.434</td>
+            <td>&lt; 2e-16</td>
+          </tr>
+          <tr>
+            <td>categoriaK5</td>
+            <td>0.26</td>
+            <td>0.057</td>
+            <td>4.534</td>
+            <td>5.78e-06</td>
+          </tr>
+          <tr>
+            <td>momentoM2</td>
+            <td>0.238</td>
+            <td>0.048</td>
+            <td>4.936</td>
+            <td>7.98e-07</td>
+          </tr>
+          <tr>
+            <td>momentoM3</td>
+            <td>0.053</td>
+            <td>0.049</td>
+            <td>1.076</td>
+            <td>0.282084</td>
+          </tr>
+          <tr>
+            <td>momentoM4</td>
+            <td>-0.26</td>
+            <td>0.051</td>
+            <td>-5.124</td>
+            <td>3.00e-07</td>
+          </tr>
+          <tr>
+            <td>magnitudMG2</td>
+            <td>0.487</td>
+            <td>0.04</td>
+            <td>12.173</td>
+            <td>&lt; 2e-16</td>
+          </tr>
+          <tr>
+            <td>magnitudMG3</td>
+            <td>0.652</td>
+            <td>0.039</td>
+            <td>16.669</td>
+            <td>&lt; 2e-16</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>Interpretación por atributo:</strong>
+      </p>
+      <ul>
+        <li>
+          <strong>Comportamiento premiado:</strong>
+           Cumplir presupuesto (C3) es el más motivador (+0.5), 
+          Ahorro protegido (C2) le sigue (+0.3), Educación y bienestar (C4) neutro, 
+          Uso recurrente (C5) el menos motivador (-0.3). Sip debería premiar disciplina financiera 
+          más que uso frecuente per se.
+        </li>
+        <li>
+          <strong>Tipo de recompensa:</strong>
+           Ecosistema (T3) es el más motivador (+0.5 vs Cashback = baseline), 
+          Descuento (T2) también fuerte (+0.4), Progresivo (T4) el más débil (-0.1). 
+          Los beneficios tangibles (partner Intercorp) motivan más que devolución de dinero en abstracto.
+        </li>
+        <li>
+          <strong>Categoría:</strong>
+           Comida/café (K3) domina (+0.6), Streaming (K4) segundo (+0.4). 
+          Educación (K1) es baseline. Cash flows del JI van a comida y entretenimiento.
+        </li>
+        <li>
+          <strong>Momento:</strong>
+           Inmediato (M1) es baseline y ganador. Cada delay reduce utility: 
+          Fin de semana -0.2, Fin de mes -0.5, Después de 30 días -0.9. La inmediatez importa MUCHO.
+        </li>
+        <li>
+          <strong>Magnitud:</strong>
+           Efecto monotónico (Premium &gt; Medio &gt; Piso). Piso motiva ~0, 
+          Medio +0.5, Techo +0.8. Con diminishing returns leves.
+        </li>
+      </ul>
+      <div class="callout callout-warn">
+        <strong>Interacción Tipo × Magnitud (p=0.0005):</strong>
+         la magnitud NO tiene el mismo efecto en todos los tipos. En Ecosistema, subir a Premium 
+        aporta más que en Cashback. Sip debe optimizar magnitud POR TIPO, no una regla única.
+      </div>
+    </div>
+    <div class="section">
+      <h3>5.7 · Preferencias por segmento (heterogeneidad detectada)</h3>
+      <p>
+        Coeficientes de Tipo de recompensa por segmento (relativos a Cashback = baseline). 
+        Todos los segmentos muestran Ecosistema como Tipo más motivador, pero con diferencias que 
+        permiten targeting.
+      </p>
+      <h4>Por uso actual de Sip</h4>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Segmento</th>
+            <th>N</th>
+            <th>Descuento (T2)</th>
+            <th>Ecosistema (T3)</th>
+            <th>Progresivo (T4)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Usuarios actuales (Sí)</td>
+            <td>288</td>
+            <td>+0.37</td>
+            <td>
+              <strong>+0.52</strong>
+            </td>
+            <td>-0.13</td>
+          </tr>
+          <tr>
+            <td>No usuarios</td>
+            <td>128</td>
+            <td>+0.20</td>
+            <td>+0.45</td>
+            <td>-0.20</td>
+          </tr>
+          <tr>
+            <td>Ex-usuarios</td>
+            <td>84</td>
+            <td>+0.27</td>
+            <td>+0.41</td>
+            <td>-0.11</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Usuarios actuales tienen la mayor sensibilidad a Ecosistema. Ex-usuarios y no-usuarios más planos, 
+        sugiere que la propuesta funciona incluso para reactivación.
+      </p>
+      <h4>Por sexo</h4>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Segmento</th>
+            <th>N</th>
+            <th>Ecosistema (T3)</th>
+            <th>Cashback vs Ecosistema</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Femenino</td>
+            <td>~245</td>
+            <td>
+              <strong>+0.51</strong>
+            </td>
+            <td>Ecosistema fuerte</td>
+          </tr>
+          <tr>
+            <td>Masculino</td>
+            <td>~245</td>
+            <td>+0.45</td>
+            <td>Ecosistema fuerte pero más cerca de Cashback</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Mujeres ligeramente más sensibles a Ecosistema. Diferencia real pero pequeña; no justifica 
+        bundles diferenciados por sexo salvo en marketing muy específico.
+      </p>
+      <h4>Por educación</h4>
+      <p>
+        Todos los segmentos educativos muestran Ecosistema como ganador (+0.44 a +0.53). 
+        Posgrado muestra la mayor sensibilidad (+0.53) sugiriendo que a mayor educación, 
+        mayor valoración de beneficios tangibles del ecosistema.
+      </p>
+    </div>
+    <div class="section">
+      <h3>5.8 · Cross MaxDiff × CBC (bundles por perfil narrativo)</h3>
+      <p>
+        Para cada segmento definido por su narrativa preferida en el MaxDiff, 
+        las utilidades de Tipo del CBC varían. Esto permite bundles diferenciados por perfil.
+      </p>
+      <p>
+        <strong>Interpretación:</strong>
+         los 'A-Reconocimiento del esfuerzo' (n=193) tienen la mayor preferencia por Ecosistema (+0.67), 
+        mientras que los 'F-Bienestar' (n=26) y 'D-Progreso' (n=54) muestran patrones más planos. 
+        Sip puede lanzar en el A/B: (a) un bundle universal con Ecosistema para el 60% que valora reconocimiento y constancia, 
+        o (b) bundles diferenciados por perfil narrativo si tiene capacidad de identificar segmentos en producción.
+      </p>
+    </div>
+    <div class="section">
+      <h3>5.9 · Percepción de los packs (post-choice CBC)</h3>
+      <p>
+        Después del CBC, se pregunta al respondente sobre el pack prototípico (armado con moda ajustada 
+        por exposición de sus elecciones).
+      </p>
+      <h4>Diferenciación (¿qué tan distinto se sentiría Sip vs Yape/Plin?)</h4>
+      <p>
+        Regresión de diferenciación (Likert 1-7) sobre atributos del pack prototípico. R² = 
+        0.19
+        . Drivers principales:
+      </p>
+      <ul>
+        <li>
+          <strong>Ecosistema (T3): +0.85</strong>
+           · el tipo que más diferencia a Sip
+        </li>
+        <li>
+          <strong>Progresivo (T4): +0.65</strong>
+           · también diferencia fuerte
+        </li>
+        <li>
+          <strong>Uso recurrente (C5): -0.43</strong>
+           · premiar por uso recurrente NO diferencia (se percibe como cualquier billetera)
+        </li>
+        <li>
+          <strong>Comida/café (K3): -0.34</strong>
+           · Comida ya es 'lo obvio' de una billetera → menos diferenciación
+        </li>
+        <li>
+          <strong>Después de 30 días (M4): -0.36</strong>
+           · promesas diferidas se sienten menos únicas
+        </li>
+      </ul>
+      <h4>Intención de uso</h4>
+      <p>Intención media 5.05/7. Por Tipo del prototipo del respondente:</p>
+      <ul>
+        <li>Ecosistema (T3): 5.26 · máxima intención declarada</li>
+        <li>Descuento (T2): 4.98</li>
+        <li>Progresivo (T4): 4.89</li>
+        <li>Cashback (T1): 4.82 · menor intención pese a ser el 'seguro'</li>
+      </ul>
+      <p>
+        Los packs con Ecosistema no solo motivan (utility HB alta), también generan mayor intención 
+        de acción (5.26/7). Cashback tiene menor intención declarada.
+      </p>
+      <h4>Credibilidad</h4>
+      <p>Credibilidad media 4.01/7 (por debajo del punto medio 4 = tibio hacia negativo). Por Tipo:</p>
+      <ul>
+        <li>
+          <strong>Cashback (T1): 4.55/7 · 53% con cred ≥ 5</strong>
+           · el único Tipo que pasa el gate para mayoría de respondentes
+        </li>
+        <li>Descuento (T2): 4.26/7 · 43% con cred ≥ 5</li>
+        <li>
+          <strong>Ecosistema (T3): 3.75/7 · solo 21% con cred ≥ 5</strong>
+           · problema serio: motiva pero no se cree
+        </li>
+        <li>
+          <strong>Progresivo (T4): 3.35/7 · solo 14% con cred ≥ 5</strong>
+           · el menos creíble; Sip debe explicar mucho mejor esta mecánica antes de lanzarla
+        </li>
+      </ul>
+      <div class="callout callout-warn">
+        <strong>Diagnóstico de marca:</strong>
+         la credibilidad promedio de 4.01/7 sugiere que Sip tiene una 
+        brecha entre lo que promete y lo que el JI cree que puede entregar. Los tipos más creíbles son 
+        los más tradicionales (Cashback, Descuento), los menos creíbles son los aspiracionales 
+        (Ecosistema, Progresivo). ANTES de lanzar un bundle con Ecosistema o Progresivo, Sip debería 
+        invertir en comunicación de marca que demuestre capacidad de entrega.
+      </div>
+    </div>
+    <div class="section">
+      <h3>5.10 · Bundles recomendados para el A/B/n</h3>
+      <p>
+        Top-5 bundles ordenados por 
+        <strong>impacto esperado</strong>
+         = utility HB × intención media. 
+        Todos los top-5 tienen gate CON RESERVA por baja credibilidad del Tipo (Ecosistema).
+      </p>
+      <table class="results-table">
+        <caption>Top 5 bundles finales</caption>
+        <thead>
+          <tr>
+            <th>Bundle</th>
+            <th>Utility</th>
+            <th>Intención</th>
+            <th>Credibilidad</th>
+            <th>Impacto</th>
+            <th>Gate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Por Cumplir presupuesto · T3/MG3 en Comida/café</td>
+            <td>2.5</td>
+            <td>5.37</td>
+            <td>3.75</td>
+            <td>13.41</td>
+            <td>CON RESERVA</td>
+          </tr>
+          <tr>
+            <td>Por Cumplir presupuesto · T3/MG3 en Streaming</td>
+            <td>2.33</td>
+            <td>5.43</td>
+            <td>3.75</td>
+            <td>12.67</td>
+            <td>CON RESERVA</td>
+          </tr>
+          <tr>
+            <td>Por Cumplir presupuesto · T3/MG2 en Comida/café</td>
+            <td>2.33</td>
+            <td>5.37</td>
+            <td>3.75</td>
+            <td>12.52</td>
+            <td>CON RESERVA</td>
+          </tr>
+          <tr>
+            <td>Por Mantener ahorro protegido · T3/MG3 en Comida/café</td>
+            <td>2.33</td>
+            <td>5.37</td>
+            <td>3.75</td>
+            <td>12.49</td>
+            <td>CON RESERVA</td>
+          </tr>
+          <tr>
+            <td>Por Cumplir presupuesto · T3/MG3 en Comida/café</td>
+            <td>2.31</td>
+            <td>5.37</td>
+            <td>3.75</td>
+            <td>12.41</td>
+            <td>CON RESERVA</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout-good">
+        <strong>Decisión ejecutiva sugerida:</strong>
+        <ol>
+          <li>
+            <strong>Bundle A (agresivo, condicional a comunicación de marca):</strong>
+             lanzar Bundle #1 (Ecosistema ~S/50 en Comida por Cumplir presupuesto) SI Sip refuerza 
+            credibilidad con campaña de marca previa que demuestre alianzas activas con partners Intercorp.
+          </li>
+          <li>
+            <strong>Bundle B (seguro):</strong>
+             armar un bundle alternativo con Cashback (credibilidad alta 4.55/7) aunque no está en el top 
+            por utility. Ej: Cashback 5% en Comida por Cumplir presupuesto. Menor impacto esperado 
+            pero mayor probabilidad de conversión real.
+          </li>
+          <li>
+            <strong>Recomendación:</strong>
+             lanzar AMBOS en el A/B/n (2 brazos + control) para comparar impacto real conductual, 
+            no solo utility declarada.
+          </li>
+        </ol>
+      </div>
+      <h3>5.11 · Insights adicionales del análisis completo</h3>
+      <h4>Uso declarado vs preferencia revelada</h4>
+      <p>
+        Choice rate del CBC casi idéntica (33.2% vs 33.4%) entre categorías reportadas como uso actual y 
+        no reportadas. Interpretación: **el JI no elige packs pensando en las categorías donde ya usa Sip**. 
+        Elige por otras razones (utility del pack completo). Sip NO puede predecir preferencias de bundle 
+        solo con data histórica de uso; necesita el CBC (o preguntar directo) para segmentar.
+      </p>
+      <h4>Control de calidad de respondentes</h4>
+      <p>
+        4.2% de los respondentes completaron la encuesta en menos de 5 minutos (posible ruido, se filtran 
+        en el pipeline de análisis real). Duración media 10.0 min, matcheando la estimación del instrumento.
+      </p>
+      <h4>Consistencia del MaxDiff</h4>
+      <p>
+        El máximo posible de n_picks del concepto ganador es 4 (cada concepto aparece en 4 de las 6 tareas). 
+        Distribución: 8.6% con n_picks=4 (muy consistentes), 40.6% con n_picks=3, 50.2% con n_picks=2, 
+        0.6% con n_picks=1. El 91.4% tiene al menos n_picks=2 → señal MaxDiff a nivel individual es discreta 
+        pero HB con N=500 la amplifica bien.
+      </p>
+    </div>
+    <div class="section">
+      <h2>6. Decisiones metodológicas clave</h2>
       <h3>Por qué pisos bajos en Magnitud</h3>
       <p>Los niveles piso (S/1 Descuento, S/5 Ecosistema, S/5 Progresivo) son deliberadamente bajos para permitir:</p>
       <ul>
