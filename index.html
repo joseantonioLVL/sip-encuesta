@@ -490,58 +490,58 @@ h3 { margin-top: 2rem; }
           disfrutar↔aprovechar, rutina↔práctica. Cada respondente ve una versión por concepto (BIBD 6-4-6).
         </em>
       </p>
-      <h3>Post-choice del MaxDiff (anclado)</h3>
+      <h3>Post-choice del MaxDiff (anclado · pregunta de canal)</h3>
       <p>
         Al terminar las 6 tareas, el sistema detecta el concepto que el respondente marcó más veces como MÁS y 
-        le muestra el texto exacto del mensaje que él vio. La pregunta de credibilidad se ancla a ese mensaje 
-        específico, no a 'los mensajes en general' (que sería vago).
+        le muestra el texto exacto del mensaje que él vio. Se le pregunta por qué canal preferiría recibirlo. 
+        Esta es una decisión operativa que el CBC no cubre: Sip necesita saber por dónde enviar cada narrativa ganadora.
       </p>
       <div class="screen-preview">
         <div class="screen-caption">Post-choice MaxDiff · ejemplo con concepto ganador simulado</div>
         <div class="screen">
-          <h3>Una última pregunta</h3>
-          <p>El mensaje que más veces marcaste como el que MÁS te motivaría a usar Sip fue:</p>
+          <h3>Una última pregunta rápida</h3>
+          <p>El mensaje que más te motivaría a usar Sip fue:</p>
           <div class="top-msg-quote">
             <em>“Cuidaste lo importante primero. Ahora disfruta lo que queda.”</em>
           </div>
           <div class="form-group shiny-input-radiogroup">
-            <label>¿Qué tan creíble te parece que Sip pueda ofrecerte un mensaje así?</label>
+            <label>¿Por dónde preferirías recibirlo?</label>
             <div class="shiny-options-group">
-              <label class="radio-inline">
-                <input type="radio" disabled/>
-                 
-                1 · Nada
-              </label>
-              <label class="radio-inline">
-                <input type="radio" disabled/>
-                 
-                2
-              </label>
-              <label class="radio-inline">
-                <input type="radio" disabled/>
-                 
-                3
-              </label>
-              <label class="radio-inline">
-                <input type="radio" disabled/>
-                 
-                4
-              </label>
-              <label class="radio-inline">
-                <input type="radio" disabled/>
-                 
-                5
-              </label>
-              <label class="radio-inline">
-                <input type="radio" disabled/>
-                 
-                6
-              </label>
-              <label class="radio-inline">
-                <input type="radio" disabled/>
-                 
-                7 · Mucho
-              </label>
+              <div class="radio">
+                <label>
+                  <input type="radio" disabled/>
+                   
+                  Push en la app
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" disabled/>
+                   
+                  WhatsApp
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" disabled/>
+                   
+                  Correo
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" disabled/>
+                   
+                  SMS
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" disabled/>
+                   
+                  Prefiero no recibirlo
+                </label>
+              </div>
             </div>
           </div>
           <div class="botonera">
@@ -1763,7 +1763,7 @@ h3 { margin-top: 2rem; }
       </p>
       <h3>Plan de análisis (cómo se usa cada dato del post-choice)</h3>
       <p>
-        Las 3 preguntas Likert del post-choice CBC no entran en el HB (que usa elecciones, no Likerts). 
+        Ni la pregunta de canal del MaxDiff ni las 3 Likert del CBC entran en el HB (que usa elecciones, no Likerts ni categóricas). 
         Cada una tiene un procedimiento de análisis específico comprometido en el reporte final:
       </p>
       <table class="results-table">
@@ -1777,10 +1777,21 @@ h3 { margin-top: 2rem; }
         <tbody>
           <tr>
             <td>
+              <strong>Canal preferido</strong>
+              <br/>
+              <small>
+                <em>post-MaxDiff · ¿por dónde preferirías recibir el mensaje ganador?</em>
+              </small>
+            </td>
+            <td>Tabulación cruzada canal × concepto ancla. Output: matriz de preferencia de canal por narrativa.</td>
+            <td>Sip elige el canal de despliegue para cada narrativa ganadora en el A/B. Ej: 'para Reconocimiento del esfuerzo, WhatsApp con 42% de preferencia'.</td>
+          </tr>
+          <tr>
+            <td>
               <strong>Diferenciación</strong>
               <br/>
               <small>
-                <em>¿qué tan diferente se sentiría Sip vs otras billeteras?</em>
+                <em>post-CBC · ¿qué tan diferente se sentiría Sip vs otras billeteras?</em>
               </small>
             </td>
             <td>
@@ -1794,7 +1805,7 @@ h3 { margin-top: 2rem; }
               <strong>Intención de uso</strong>
               <br/>
               <small>
-                <em>¿qué tan probable es que uses Sip esta semana si te ofreciera este pack?</em>
+                <em>post-CBC · ¿qué tan probable es que uses Sip esta semana si te ofreciera este pack?</em>
               </small>
             </td>
             <td>
@@ -1810,7 +1821,7 @@ h3 { margin-top: 2rem; }
               <strong>Credibilidad</strong>
               <br/>
               <small>
-                <em>¿qué tan creíble te parece que Sip pueda ofrecértelo?</em>
+                <em>post-CBC · ¿qué tan creíble te parece que Sip pueda ofrecértelo?</em>
               </small>
             </td>
             <td>
@@ -1824,6 +1835,7 @@ h3 { margin-top: 2rem; }
       <div class="callout callout-good">
         <strong>Compromiso del reporte final LVL a Sip:</strong>
         <ul>
+          <li>Sección 'Canal de despliegue recomendado por narrativa': tabla canal × concepto ancla.</li>
           <li>Sección 'Análisis complementario · Diferenciación': regresión + tabla de coeficientes por atributo.</li>
           <li>Sección 'Análisis complementario · Filtro de credibilidad': ranking de bundles con gate por credibilidad.</li>
           <li>
