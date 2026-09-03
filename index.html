@@ -910,7 +910,7 @@ h3 { margin-top: 2rem; }
             </div>
           </div>
           <div class="form-group">
-            <label>¿Qué tan relevante es este paquete para ti?</label>
+            <label>Si Sip te ofreciera este paquete, ¿qué tan probable es que uses Sip esta semana?</label>
             <div class="shiny-options-group">
               <label class="radio-inline">
                 <input type="radio" disabled/>
@@ -1761,6 +1761,78 @@ h3 { margin-top: 2rem; }
         <code>reactive({...})</code>
          y lo renderiza como cita destacada (mensaje MaxDiff) o mini tarjeta (pack CBC) antes de las Likert.
       </p>
+      <h3>Plan de análisis (cómo se usa cada dato del post-choice)</h3>
+      <p>
+        Las 3 preguntas Likert del post-choice CBC no entran en el HB (que usa elecciones, no Likerts). 
+        Cada una tiene un procedimiento de análisis específico comprometido en el reporte final:
+      </p>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Pregunta</th>
+            <th>Procedimiento de análisis</th>
+            <th>Decisión que informa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>Diferenciación</strong>
+              <br/>
+              <small>
+                <em>¿qué tan diferente se sentiría Sip vs otras billeteras?</em>
+              </small>
+            </td>
+            <td>
+              Regresión OLS de diferenciación (1-7) sobre los 6 atributos del pack prototípico. 
+              Output: qué combinaciones de atributos generan mayor diferenciación.
+            </td>
+            <td>Sesga el bundle recomendado hacia los atributos con mayor poder diferenciador cuando hay empate en utilidad HB. Testea H7 del docx original.</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Intención de uso</strong>
+              <br/>
+              <small>
+                <em>¿qué tan probable es que uses Sip esta semana si te ofreciera este pack?</em>
+              </small>
+            </td>
+            <td>
+              Score compuesto: 
+              <code>impacto_esperado = utilidad_HB × mean(intencion)</code>
+              . 
+              Convierte la utilidad declarada del CBC en predictor cuasi-conductual.
+            </td>
+            <td>Ranking final de bundles no solo por utilidad HB sino por probabilidad de acción real. Filtra bundles motivadores pero improbables de generar comportamiento.</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Credibilidad</strong>
+              <br/>
+              <small>
+                <em>¿qué tan creíble te parece que Sip pueda ofrecértelo?</em>
+              </small>
+            </td>
+            <td>
+              Gate pre-A/B. Bundles con credibilidad promedio &lt; 5/7 se marcan como 'recomendado con reserva'. 
+              Alertan que Sip debe trabajar comunicación de marca antes del lanzamiento.
+            </td>
+            <td>Evita quemar presupuesto de A/B en bundles motivadores pero no creíbles para el JI.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout-good">
+        <strong>Compromiso del reporte final LVL a Sip:</strong>
+        <ul>
+          <li>Sección 'Análisis complementario · Diferenciación': regresión + tabla de coeficientes por atributo.</li>
+          <li>Sección 'Análisis complementario · Filtro de credibilidad': ranking de bundles con gate por credibilidad.</li>
+          <li>
+            Sección 'Score de impacto esperado': tabla de bundles ordenados por 
+            <code>utilidad × intención</code>
+            , no solo por utilidad.
+          </li>
+        </ul>
+      </div>
       <h3>Decisión metodológica pendiente: alimentar el CBC con MaxDiff</h3>
       <p>
         Existe la opción de fijar la narrativa ganadora del MaxDiff como framing constante de los packs del CBC (adaptive), 
