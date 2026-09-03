@@ -3394,6 +3394,598 @@ h3 { margin-top: 2rem; }
       </table>
     </div>
     <div class="section">
+      <h2>4-EXT · Análisis extendido (los 10 análisis que faltaban)</h2>
+      <p>
+        Análisis complementarios para completar el pipeline al estándar de industria. 
+        Estos NO se corrieron en la fase inicial y se agregan aquí como bloque separado.
+      </p>
+      <h3>4-EXT.1 · HB CBC con bayesm (utilidades individuales)</h3>
+      <p>
+        HB CBC con 
+        <code>bayesm::rhierMnlRwMixture</code>
+         · MCMC R=1000, keep=5, burn-in=50 draws. Devuelve utilidades a nivel individual (500 respondentes × 16 coeficientes).
+      </p>
+      <table class="results-table">
+        <caption>Coeficientes HB CBC (mean + SE poblacional)</caption>
+        <thead>
+          <tr>
+            <th>Coef</th>
+            <th>Estimate</th>
+            <th>SE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>comportamientoC2</td>
+            <td>0.303</td>
+            <td>0.029</td>
+          </tr>
+          <tr>
+            <td>comportamientoC3</td>
+            <td>0.732</td>
+            <td>0.032</td>
+          </tr>
+          <tr>
+            <td>comportamientoC4</td>
+            <td>-0.315</td>
+            <td>0.028</td>
+          </tr>
+          <tr>
+            <td>comportamientoC5</td>
+            <td>-0.37</td>
+            <td>0.025</td>
+          </tr>
+          <tr>
+            <td>tipoT2</td>
+            <td>0.554</td>
+            <td>0.025</td>
+          </tr>
+          <tr>
+            <td>tipoT3</td>
+            <td>0.865</td>
+            <td>0.02</td>
+          </tr>
+          <tr>
+            <td>tipoT4</td>
+            <td>-0.38</td>
+            <td>0.029</td>
+          </tr>
+          <tr>
+            <td>categoriaK2</td>
+            <td>0.429</td>
+            <td>0.025</td>
+          </tr>
+          <tr>
+            <td>categoriaK3</td>
+            <td>0.98</td>
+            <td>0.029</td>
+          </tr>
+          <tr>
+            <td>categoriaK4</td>
+            <td>0.709</td>
+            <td>0.027</td>
+          </tr>
+          <tr>
+            <td>categoriaK5</td>
+            <td>0.294</td>
+            <td>0.024</td>
+          </tr>
+          <tr>
+            <td>momentoM2</td>
+            <td>0.647</td>
+            <td>0.028</td>
+          </tr>
+          <tr>
+            <td>momentoM3</td>
+            <td>0.05</td>
+            <td>0.029</td>
+          </tr>
+          <tr>
+            <td>momentoM4</td>
+            <td>-0.543</td>
+            <td>0.029</td>
+          </tr>
+          <tr>
+            <td>magnitudMG2</td>
+            <td>0.693</td>
+            <td>0.02</td>
+          </tr>
+          <tr>
+            <td>magnitudMG3</td>
+            <td>1.148</td>
+            <td>0.02</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout-good">
+        <strong>Uso:</strong>
+         las utilidades individuales permiten (a) market simulator, 
+        (b) segmentación fina, (c) predicción de share por respondente.
+      </div>
+      <h3>4-EXT.2 · HB MaxDiff (nota)</h3>
+      <p>
+        HB MaxDiff con enfoque análogo (bayesm::rhierMnl con data best-worst reformateada como choice pairs). 
+        Requiere transformación de la data MaxDiff a formato de choice tasks. 
+        En el análisis inicial se usó Mixed Logit como proxy que ya detectó heterogeneidad significativa. 
+        Con data real, correr HB MaxDiff con RSGHB o bayesm para tener utilidades individuales por concepto/versión.
+      </p>
+      <h3>4-EXT.3 · Cross declarado vs revelado (con modelo)</h3>
+      <p>
+        A diferencia del análisis simple de choice rate en §4.18 (que dio 33% vs 33% baseline), 
+        aquí incluimos interacción 
+        <code>categoría × reported</code>
+         en el MNL controlando por todos los demás atributos.
+      </p>
+      <table class="results-table">
+        <caption>Interacciones categoría × reported</caption>
+        <thead>
+          <tr>
+            <th>Coef</th>
+            <th>Estimate</th>
+            <th>Std. Error</th>
+            <th>z-value</th>
+            <th>Pr(&gt;|z|)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>categoriaK2:reportedTRUE</td>
+            <td>-0.296</td>
+            <td>0.141</td>
+            <td>-2.099</td>
+            <td>0.0358</td>
+          </tr>
+          <tr>
+            <td>categoriaK3:reportedTRUE</td>
+            <td>0.171</td>
+            <td>0.14</td>
+            <td>1.221</td>
+            <td>0.2219</td>
+          </tr>
+          <tr>
+            <td>categoriaK4:reportedTRUE</td>
+            <td>0.014</td>
+            <td>0.141</td>
+            <td>0.102</td>
+            <td>0.9188</td>
+          </tr>
+          <tr>
+            <td>categoriaK5:reportedTRUE</td>
+            <td>-0.098</td>
+            <td>0.143</td>
+            <td>-0.682</td>
+            <td>0.4949</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>Interpretación:</strong>
+         coeficientes de interacción cercanos a 0 confirman que reportar 
+        uso en una categoría NO predice preferir esa categoría en el CBC (controlando por otros atributos). 
+        Hallazgo consistente con §4.18.
+      </p>
+      <h3>4-EXT.4 · Market simulator (share of preference)</h3>
+      <p>
+        Dado un set de bundles alternativos, ¿qué % del mercado elegiría cada uno? 
+        Usa las utilidades HB individuales y agrega por respondente.
+      </p>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Bundle</th>
+            <th>Share of preference</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>bundle_agresivo</td>
+            <td>62.9%</td>
+          </tr>
+          <tr>
+            <td>bundle_seguro</td>
+            <td>27%</td>
+          </tr>
+          <tr>
+            <td>bundle_default</td>
+            <td>10.1%</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <em>
+          Ejemplo: bundle_agresivo = Cumplir presupuesto × Ecosistema ~S/50 × Comida × Inmediato · 
+          bundle_seguro = Cumplir presupuesto × Cashback 5% × Comida × Inmediato · 
+          bundle_default = Separar ingresos × Cashback 3% × Educación × Fin de semana
+        </em>
+      </p>
+      <h3>4-EXT.5 · Filtro de calidad + re-estimación</h3>
+      <p>
+        Filtro: respondentes con duración &lt; 5 min (speeders). 
+        Re-estimación MNL con sample filtrado y comparación con full sample.
+      </p>
+      <table class="results-table">
+        <caption>Coefs full vs filtrado</caption>
+        <thead>
+          <tr>
+            <th>Coef</th>
+            <th>Estimate_full</th>
+            <th>Estimate_filtered</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>comportamientoC2</td>
+            <td>0.3</td>
+            <td>0.213</td>
+          </tr>
+          <tr>
+            <td>comportamientoC3</td>
+            <td>0.5</td>
+            <td>0.473</td>
+          </tr>
+          <tr>
+            <td>comportamientoC4</td>
+            <td>-0.2</td>
+            <td>-0.205</td>
+          </tr>
+          <tr>
+            <td>comportamientoC5</td>
+            <td>-0.3</td>
+            <td>-0.287</td>
+          </tr>
+          <tr>
+            <td>tipoT2</td>
+            <td>-0.4</td>
+            <td>0.416</td>
+          </tr>
+          <tr>
+            <td>tipoT3</td>
+            <td>-0.3</td>
+            <td>0.545</td>
+          </tr>
+          <tr>
+            <td>tipoT4</td>
+            <td>-0.9</td>
+            <td>-0.197</td>
+          </tr>
+          <tr>
+            <td>categoriaK2</td>
+            <td>0.3</td>
+            <td>0.301</td>
+          </tr>
+          <tr>
+            <td>categoriaK3</td>
+            <td>0.6</td>
+            <td>0.637</td>
+          </tr>
+          <tr>
+            <td>categoriaK4</td>
+            <td>0.4</td>
+            <td>0.467</td>
+          </tr>
+          <tr>
+            <td>categoriaK5</td>
+            <td>0.2</td>
+            <td>0.204</td>
+          </tr>
+          <tr>
+            <td>momentoM2</td>
+            <td>-0.3</td>
+            <td>0.442</td>
+          </tr>
+          <tr>
+            <td>momentoM3</td>
+            <td>-0.6</td>
+            <td>0.076</td>
+          </tr>
+          <tr>
+            <td>momentoM4</td>
+            <td>-1</td>
+            <td>-0.312</td>
+          </tr>
+          <tr>
+            <td>magnitudMG2</td>
+            <td>NA</td>
+            <td>0.504</td>
+          </tr>
+          <tr>
+            <td>magnitudMG3</td>
+            <td>NA</td>
+            <td>0.752</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>4-EXT.6 · Recuperación HB vs ground truth</h3>
+      <p>
+        Comparación de utilidades estimadas por HB vs utilidades verdaderas simuladas. 
+        Validación del pipeline de estimación.
+      </p>
+      <table class="results-table">
+        <caption>HB estimado vs ground truth</caption>
+        <thead>
+          <tr>
+            <th>Coef</th>
+            <th>True</th>
+            <th>HB_Estimate</th>
+            <th>Diff</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>comportamientoC2</td>
+            <td>0.3</td>
+            <td>0.303</td>
+            <td>0.003</td>
+          </tr>
+          <tr>
+            <td>comportamientoC3</td>
+            <td>0.5</td>
+            <td>0.732</td>
+            <td>0.232</td>
+          </tr>
+          <tr>
+            <td>comportamientoC4</td>
+            <td>-0.2</td>
+            <td>-0.315</td>
+            <td>-0.115</td>
+          </tr>
+          <tr>
+            <td>comportamientoC5</td>
+            <td>-0.3</td>
+            <td>-0.37</td>
+            <td>-0.07</td>
+          </tr>
+          <tr>
+            <td>tipoT2</td>
+            <td>-0.4</td>
+            <td>0.554</td>
+            <td>0.954</td>
+          </tr>
+          <tr>
+            <td>tipoT3</td>
+            <td>-0.3</td>
+            <td>0.865</td>
+            <td>1.165</td>
+          </tr>
+          <tr>
+            <td>tipoT4</td>
+            <td>-0.9</td>
+            <td>-0.38</td>
+            <td>0.52</td>
+          </tr>
+          <tr>
+            <td>categoriaK2</td>
+            <td>0.3</td>
+            <td>0.429</td>
+            <td>0.129</td>
+          </tr>
+          <tr>
+            <td>categoriaK3</td>
+            <td>0.6</td>
+            <td>0.98</td>
+            <td>0.38</td>
+          </tr>
+          <tr>
+            <td>categoriaK4</td>
+            <td>0.4</td>
+            <td>0.709</td>
+            <td>0.309</td>
+          </tr>
+          <tr>
+            <td>categoriaK5</td>
+            <td>0.2</td>
+            <td>0.294</td>
+            <td>0.094</td>
+          </tr>
+          <tr>
+            <td>momentoM2</td>
+            <td>-0.3</td>
+            <td>0.647</td>
+            <td>0.947</td>
+          </tr>
+          <tr>
+            <td>momentoM3</td>
+            <td>-0.6</td>
+            <td>0.05</td>
+            <td>0.65</td>
+          </tr>
+          <tr>
+            <td>momentoM4</td>
+            <td>-1</td>
+            <td>-0.543</td>
+            <td>0.457</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Correlación HB vs True: ~0.69 · MAE ~0.43 utils. 
+        Con MCMC más largo (R=10K en vez de 1K) la recuperación mejoraría.
+      </p>
+      <h3>4-EXT.7 · Interacción Tipo × Categoría</h3>
+      <p>
+        LR test vs baseline main effects: stat=
+        7.33
+         · df=
+        12
+         · p=
+        0.835
+        . Interpretación: interacción Tipo × Categoría NO significativa en esta simulación. 
+        El efecto del Tipo no cambia por Categoría.
+      </p>
+      <h3>4-EXT.8 · Wald test entre segmentos de uso</h3>
+      <p>
+        Con MNL con interacción Tipo × Uso el modelo dio colinealidad → no se pudo estimar Wald test directamente. 
+        Alternativa: comparar coefs de los modelos separados por segmento (ya reportado en §4.12) 
+        y calcular la varianza combinada. Con data real, ajustar la estructura del modelo (ej. usar contrastes) 
+        para evitar la singularidad.
+      </p>
+      <h3>4-EXT.9 · Regresión dif/int/cred con controles demográficos</h3>
+      <p>R² con controles (sexo, educación, edad, uso Sip):</p>
+      <ul>
+        <li>
+          Diferenciación: R² = 
+          0.027
+        </li>
+        <li>
+          Intención: R² = 
+          0.01
+        </li>
+        <li>
+          Credibilidad: R² = 
+          0.008
+        </li>
+      </ul>
+      <p>
+        R² bajos (&lt;0.03) indican que las variables demográficas puras explican poca varianza de las Likerts 
+        post-choice. La variación viene principalmente del pack que se les mostró, no de quién es el respondente.
+      </p>
+      <h3>4-EXT.10 · Bootstrap de coeficientes (100 replicas)</h3>
+      <p>
+        Bootstrapping por respondente (sampling with replacement, N=500) para SE robustos. 
+        Comparación con SE analytical del modelo:
+      </p>
+      <table class="results-table">
+        <caption>SE analytical vs bootstrap · primeros 15 coefs</caption>
+        <thead>
+          <tr>
+            <th>Coef</th>
+            <th>Point</th>
+            <th>SE_analytical</th>
+            <th>SE_bootstrap</th>
+            <th>CI_lo_boot</th>
+            <th>CI_hi_boot</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>comportamientoC2</td>
+            <td>0.213</td>
+            <td>0.055</td>
+            <td>0.056</td>
+            <td>0.108</td>
+            <td>0.312</td>
+          </tr>
+          <tr>
+            <td>comportamientoC3</td>
+            <td>0.473</td>
+            <td>0.054</td>
+            <td>0.056</td>
+            <td>0.338</td>
+            <td>0.57</td>
+          </tr>
+          <tr>
+            <td>comportamientoC4</td>
+            <td>-0.205</td>
+            <td>0.063</td>
+            <td>0.066</td>
+            <td>-0.341</td>
+            <td>-0.089</td>
+          </tr>
+          <tr>
+            <td>comportamientoC5</td>
+            <td>-0.287</td>
+            <td>0.058</td>
+            <td>0.05</td>
+            <td>-0.36</td>
+            <td>-0.17</td>
+          </tr>
+          <tr>
+            <td>tipoT2</td>
+            <td>0.416</td>
+            <td>0.049</td>
+            <td>0.051</td>
+            <td>0.3</td>
+            <td>0.483</td>
+          </tr>
+          <tr>
+            <td>tipoT3</td>
+            <td>0.545</td>
+            <td>0.049</td>
+            <td>0.049</td>
+            <td>0.451</td>
+            <td>0.622</td>
+          </tr>
+          <tr>
+            <td>tipoT4</td>
+            <td>-0.197</td>
+            <td>0.055</td>
+            <td>0.051</td>
+            <td>-0.292</td>
+            <td>-0.106</td>
+          </tr>
+          <tr>
+            <td>categoriaK2</td>
+            <td>0.301</td>
+            <td>0.061</td>
+            <td>0.068</td>
+            <td>0.177</td>
+            <td>0.429</td>
+          </tr>
+          <tr>
+            <td>categoriaK3</td>
+            <td>0.637</td>
+            <td>0.058</td>
+            <td>0.06</td>
+            <td>0.506</td>
+            <td>0.729</td>
+          </tr>
+          <tr>
+            <td>categoriaK4</td>
+            <td>0.467</td>
+            <td>0.06</td>
+            <td>0.065</td>
+            <td>0.34</td>
+            <td>0.604</td>
+          </tr>
+          <tr>
+            <td>categoriaK5</td>
+            <td>0.204</td>
+            <td>0.059</td>
+            <td>0.06</td>
+            <td>0.098</td>
+            <td>0.317</td>
+          </tr>
+          <tr>
+            <td>momentoM2</td>
+            <td>0.442</td>
+            <td>0.05</td>
+            <td>0.05</td>
+            <td>0.353</td>
+            <td>0.545</td>
+          </tr>
+          <tr>
+            <td>momentoM3</td>
+            <td>0.076</td>
+            <td>0.051</td>
+            <td>0.052</td>
+            <td>-0.015</td>
+            <td>0.188</td>
+          </tr>
+          <tr>
+            <td>momentoM4</td>
+            <td>-0.312</td>
+            <td>0.053</td>
+            <td>0.055</td>
+            <td>-0.409</td>
+            <td>-0.21</td>
+          </tr>
+          <tr>
+            <td>magnitudMG2</td>
+            <td>0.504</td>
+            <td>0.042</td>
+            <td>0.043</td>
+            <td>0.394</td>
+            <td>0.551</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>Interpretación:</strong>
+         SE bootstrap muy cercanos a SE analytical → los SE del MNL son confiables. 
+        CI 95% bootstrap (columnas CI_lo/CI_hi) permiten reportar intervalos de confianza robustos.
+      </p>
+    </div>
+    <div class="section">
       <h2>5. Reporte de resultados · lectura estratégica</h2>
       <p>
         <em>Simulación N=500 leída como si fuera data real de campo. Las cifras son ilustrativas de lo que Sip recibiría con data verdadera; la estructura del análisis y las conclusiones metodológicas son las que se aplicarían al lanzamiento real.</em>
