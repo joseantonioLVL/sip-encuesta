@@ -383,7 +383,7 @@ h3 { margin-top: 2rem; }
   <body>
     <h1>Sip JI · Documentación de la encuesta y validación analítica</h1>
     <p>
-      <em>Generado por LVL · versión CBC v5 con pisos bajos y valores calibrados a Perú</em>
+      <em>Generado por LVL · versión con post-choice ancladas y valores calibrados al mercado peruano</em>
     </p>
     <div class="section">
       <h2>1. Overview del estudio</h2>
@@ -397,17 +397,19 @@ h3 { margin-top: 2rem; }
         que componen una recompensa. El objetivo final es construir 2-3 bundles ganadores 
         para el A/B/n conductual.
       </p>
-      <h3>Estructura (9 secciones, ~10-12 min por respondente)</h3>
+      <h3>Estructura (~9-10 min por respondente)</h3>
       <ol>
         <li>Bienvenida y consentimiento</li>
-        <li>Screener typing tool JI (edad, convivencia, hijo mayor)</li>
+        <li>Screener typing tool JI (edad, convivencia, edad del hijo menor)</li>
         <li>Introducción al MaxDiff</li>
         <li>MaxDiff · 6 tareas × 4 mensajes (BIBD)</li>
-        <li>Post-choice MaxDiff · 1 Likert credibilidad</li>
+        <li>Post-choice MaxDiff · pregunta de canal preferido anclada al mensaje ganador</li>
         <li>Introducción al CBC</li>
-        <li>CBC · 10 tareas × 3 packs + 'Ninguno' (D-óptimo balanceado, alt-specific magnitud)</li>
-        <li>Post-choice CBC · 3 Likert (diferenciación, relevancia, credibilidad)</li>
-        <li>Cierre + campo opcional de correo</li>
+        <li>CBC · 10 tareas × 3 packs + 'Ninguno' (diseño balanceado, alt-specific magnitud, sin narrativa como atributo)</li>
+        <li>Post-choice CBC · 3 Likert (credibilidad, diferenciación, intención de uso) anclada al pack prototípico</li>
+        <li>Bloque de uso actual de Sip</li>
+        <li>Demografía</li>
+        <li>Cierre (guardado automático)</li>
       </ol>
       <div class="callout">
         <strong>URL de la app:</strong>
@@ -801,17 +803,19 @@ h3 { margin-top: 2rem; }
       </ul>
       <h3>Post-choice del CBC (anclado a pack prototípico)</h3>
       <p>
-        Al terminar las 10 tareas, el sistema construye el 'pack prototípico' del respondente: 
-        para cada uno de los 6 atributos, toma el nivel más elegido entre los packs que el respondente 
-        efectivamente seleccionó. El resultado es la combinación que mejor representa las preferencias del 
-        respondente. Las 3 preguntas Likert se anclan a ese pack concreto, no a 'la propuesta en general' 
-        (que sería vago tras haber visto 30 packs distintos).
+        Al terminar las 10 tareas, el sistema construye el 'pack prototípico' del respondente usando 
+        <strong>moda ajustada por exposición</strong>
+        : para cada atributo, elige el nivel con mayor 
+        <code>tasa de elección</code>
+         (veces_elegido / veces_expuesto). Esto controla por el sesgo de 
+        que algunos niveles aparezcan más veces como opción. El resultado es la combinación que mejor 
+        representa las preferencias del respondente. Las 3 preguntas Likert se anclan a ese pack concreto.
       </p>
       <div class="screen-preview">
         <div class="screen-caption">Post-choice CBC · ejemplo con pack prototípico</div>
         <div class="screen">
-          <h3>Tres preguntas sobre lo que viste</h3>
-          <p>Combinando los paquetes que más elegiste, este es el paquete que te motivaría más a usar Sip:</p>
+          <h3>Sobre este paquete</h3>
+          <p>Este es el paquete que armamos con lo que elegiste. Contéstanos 3 preguntas rápidas sobre él.</p>
           <div class="cbc-prototype-wrapper">
             <div class="cbc-pack cbc-pack-prototype">
               <div class="cbc-pack-header">El paquete que te motivaría más</div>
@@ -848,12 +852,12 @@ h3 { margin-top: 2rem; }
             </div>
           </div>
           <div class="form-group">
-            <label>Si Sip te ofreciera este paquete, ¿qué tan diferente se sentiría Sip frente a otras billeteras?</label>
+            <label>¿Qué tan creíble te parece que Sip pueda ofrecerte específicamente este paquete?</label>
             <div class="shiny-options-group">
               <label class="radio-inline">
                 <input type="radio" disabled/>
                  
-                1 · Nada
+                1 · Nada creíble
               </label>
               <label class="radio-inline">
                 <input type="radio" disabled/>
@@ -883,17 +887,17 @@ h3 { margin-top: 2rem; }
               <label class="radio-inline">
                 <input type="radio" disabled/>
                  
-                7 · Mucho
+                7 · Muy creíble
               </label>
             </div>
           </div>
           <div class="form-group">
-            <label>Si Sip te ofreciera este paquete, ¿qué tan probable es que uses Sip esta semana?</label>
+            <label>Con este paquete, ¿qué tan diferente sentirías a Sip frente a otras billeteras como Yape o Plin?</label>
             <div class="shiny-options-group">
               <label class="radio-inline">
                 <input type="radio" disabled/>
                  
-                1 · Nada
+                1 · Igual que el resto
               </label>
               <label class="radio-inline">
                 <input type="radio" disabled/>
@@ -923,17 +927,17 @@ h3 { margin-top: 2rem; }
               <label class="radio-inline">
                 <input type="radio" disabled/>
                  
-                7 · Mucho
+                7 · Muy diferente
               </label>
             </div>
           </div>
           <div class="form-group">
-            <label>¿Qué tan creíble te parece que Sip pueda ofrecértelo?</label>
+            <label>Si Sip te ofreciera este paquete, ¿qué tan probable es que uses Sip para pagar esta semana?</label>
             <div class="shiny-options-group">
               <label class="radio-inline">
                 <input type="radio" disabled/>
                  
-                1 · Nada
+                1 · Nada probable
               </label>
               <label class="radio-inline">
                 <input type="radio" disabled/>
@@ -963,7 +967,7 @@ h3 { margin-top: 2rem; }
               <label class="radio-inline">
                 <input type="radio" disabled/>
                  
-                7 · Mucho
+                7 · Seguro que sí
               </label>
             </div>
           </div>
