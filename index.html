@@ -139,6 +139,13 @@
   font-size: 0.95rem;
 }
 
+.cbc-attr-subvalue {
+  color: #6c757d;
+  font-size: 0.82rem;
+  margin-top: 0.2rem;
+  line-height: 1.3;
+}
+
 .cbc-choice {
   margin-top: 1.25rem;
   display: flex;
@@ -554,11 +561,12 @@ h3 { margin-top: 2rem; }
       <h2>3. CBC · pantalla real de la encuesta</h2>
       <p>
         Cada tarea muestra 3 paquetes de recompensa + opción 'Ninguno'. Cada paquete combina 
-        6 atributos: comportamiento premiado, narrativa, tipo de recompensa (con magnitud fusionada), 
-        categoría y momento. La recompensa está destacada visualmente con fondo amarillo.
+        5 atributos: comportamiento premiado, tipo de recompensa (con magnitud fusionada), 
+        categoría y momento. La recompensa está destacada visualmente con fondo amarillo. 
+        La narrativa se mide solo en el MaxDiff (no aparece como atributo del CBC).
       </p>
       <div class="screen-preview">
-        <div class="screen-caption">CBC · Tarea 3 de 10 (ejemplo con seed=42, valores actuales v5)</div>
+        <div class="screen-caption">CBC · Tarea 3 de 10 (ejemplo con seed=42, valores actuales)</div>
         <div class="screen cbc-screen">
           <div class="progress-hint">Tarea 3 de 10</div>
           <div class="cbc-task-prompt">¿Cuál de estos paquetes te motivaría más a usar Sip?</div>
@@ -566,113 +574,74 @@ h3 { margin-top: 2rem; }
             <div class="cbc-pack">
               <div class="cbc-pack-header">Paquete A</div>
               <div class="cbc-attr">
-                <div class="cbc-attr-icon">🎯</div>
+                <div class="cbc-attr-icon">⚡</div>
                 <div class="cbc-attr-body">
-                  <div class="cbc-attr-label">Por</div>
-                  <div class="cbc-attr-value">Invertir en educación y bienestar</div>
-                </div>
-              </div>
-              <div class="cbc-attr">
-                <div class="cbc-attr-icon">💬</div>
-                <div class="cbc-attr-body">
-                  <div class="cbc-attr-label">Mensaje</div>
-                  <div class="cbc-attr-value">Disfrutar sin culpa</div>
+                  <div class="cbc-attr-label">Se te premia por</div>
+                  <div class="cbc-attr-value">Separar tus ingresos</div>
                 </div>
               </div>
               <div class="cbc-attr cbc-attr-reward">
                 <div class="cbc-attr-icon">🎁</div>
                 <div class="cbc-attr-body">
-                  <div class="cbc-attr-label">Recibes</div>
+                  <div class="cbc-attr-label">Ganas</div>
                   <div class="cbc-attr-value">
-                    <strong>Cashback · 1%</strong>
+                    <strong>S/5 acumulables en 4 semanas</strong>
                   </div>
-                </div>
-              </div>
-              <div class="cbc-attr">
-                <div class="cbc-attr-icon">🏷️</div>
-                <div class="cbc-attr-body">
-                  <div class="cbc-attr-label">En</div>
-                  <div class="cbc-attr-value">Educación</div>
+                  <div class="cbc-attr-subvalue">Para usar en Comida/café</div>
                 </div>
               </div>
               <div class="cbc-attr">
                 <div class="cbc-attr-icon">⏰</div>
                 <div class="cbc-attr-body">
                   <div class="cbc-attr-label">Cuándo</div>
-                  <div class="cbc-attr-value">Inmediato</div>
+                  <div class="cbc-attr-value">Los fines de semana</div>
                 </div>
               </div>
             </div>
             <div class="cbc-pack">
               <div class="cbc-pack-header">Paquete B</div>
               <div class="cbc-attr">
-                <div class="cbc-attr-icon">🎯</div>
+                <div class="cbc-attr-icon">⚡</div>
                 <div class="cbc-attr-body">
-                  <div class="cbc-attr-label">Por</div>
-                  <div class="cbc-attr-value">Uso recurrente</div>
-                </div>
-              </div>
-              <div class="cbc-attr">
-                <div class="cbc-attr-icon">💬</div>
-                <div class="cbc-attr-body">
-                  <div class="cbc-attr-label">Mensaje</div>
-                  <div class="cbc-attr-value">Reconocimiento del esfuerzo</div>
+                  <div class="cbc-attr-label">Se te premia por</div>
+                  <div class="cbc-attr-value">Invertir en educación y bienestar</div>
                 </div>
               </div>
               <div class="cbc-attr cbc-attr-reward">
                 <div class="cbc-attr-icon">🎁</div>
                 <div class="cbc-attr-body">
-                  <div class="cbc-attr-label">Recibes</div>
+                  <div class="cbc-attr-label">Ganas</div>
                   <div class="cbc-attr-value">
-                    <strong>Beneficio progresivo/desbloqueable · S/25 en 4 sem</strong>
+                    <strong>Un descuento de S/25</strong>
                   </div>
-                </div>
-              </div>
-              <div class="cbc-attr">
-                <div class="cbc-attr-icon">🏷️</div>
-                <div class="cbc-attr-body">
-                  <div class="cbc-attr-label">En</div>
-                  <div class="cbc-attr-value">Bienestar</div>
+                  <div class="cbc-attr-subvalue">Para usar en Educación</div>
                 </div>
               </div>
               <div class="cbc-attr">
                 <div class="cbc-attr-icon">⏰</div>
                 <div class="cbc-attr-body">
                   <div class="cbc-attr-label">Cuándo</div>
-                  <div class="cbc-attr-value">Fin de semana</div>
+                  <div class="cbc-attr-value">Al momento</div>
                 </div>
               </div>
             </div>
             <div class="cbc-pack">
               <div class="cbc-pack-header">Paquete C</div>
               <div class="cbc-attr">
-                <div class="cbc-attr-icon">🎯</div>
+                <div class="cbc-attr-icon">⚡</div>
                 <div class="cbc-attr-body">
-                  <div class="cbc-attr-label">Por</div>
-                  <div class="cbc-attr-value">Mantener ahorro protegido</div>
-                </div>
-              </div>
-              <div class="cbc-attr">
-                <div class="cbc-attr-icon">💬</div>
-                <div class="cbc-attr-body">
-                  <div class="cbc-attr-label">Mensaje</div>
-                  <div class="cbc-attr-value">Progreso personal</div>
+                  <div class="cbc-attr-label">Se te premia por</div>
+                  <div class="cbc-attr-value">Cumplir tu presupuesto</div>
                 </div>
               </div>
               <div class="cbc-attr cbc-attr-reward">
                 <div class="cbc-attr-icon">🎁</div>
                 <div class="cbc-attr-body">
-                  <div class="cbc-attr-label">Recibes</div>
+                  <div class="cbc-attr-label">Ganas</div>
                   <div class="cbc-attr-value">
-                    <strong>Cashback · 5%</strong>
+                    <strong>Un beneficio con valor equivalente ~S/20</strong>
                   </div>
-                </div>
-              </div>
-              <div class="cbc-attr">
-                <div class="cbc-attr-icon">🏷️</div>
-                <div class="cbc-attr-body">
-                  <div class="cbc-attr-label">En</div>
-                  <div class="cbc-attr-value">Comida/café</div>
+                  <div class="cbc-attr-subvalue">Para usar en Entretenimiento</div>
                 </div>
               </div>
               <div class="cbc-attr">
@@ -719,7 +688,7 @@ h3 { margin-top: 2rem; }
           </div>
         </div>
       </div>
-      <h3>Atributos y niveles del CBC (valores actuales v5)</h3>
+      <h3>Atributos y niveles del CBC (5 atributos)</h3>
       <table class="results-table attr-table">
         <thead>
           <tr>
@@ -733,12 +702,6 @@ h3 { margin-top: 2rem; }
               <strong>Comportamiento premiado</strong>
             </td>
             <td>Separar ingresos &nbsp;·&nbsp; Ahorro protegido &nbsp;·&nbsp; Cumplir presupuesto &nbsp;·&nbsp; Invertir en educación y bienestar &nbsp;·&nbsp; Uso recurrente</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>Narrativa</strong>
-            </td>
-            <td>Reconocimiento del esfuerzo &nbsp;·&nbsp; Disfrutar sin culpa &nbsp;·&nbsp; Progreso personal &nbsp;·&nbsp; Constancia/hábito &nbsp;·&nbsp; Beneficio cotidiano</td>
           </tr>
           <tr>
             <td>
@@ -808,10 +771,14 @@ h3 { margin-top: 2rem; }
           </tr>
         </tbody>
       </table>
+      <div class="callout callout-warn">
+        <strong>Cambio de scope respecto al docx original (Sec 4):</strong>
+         el docx listaba Narrativa como un 6º atributo del CBC. Se sacó porque (a) el MaxDiff ya la mide a nivel de wording fino, y (b) las Sec 1 + Sec 7 + H7 del mismo docx pedían medir narrativa y recompensa por separado. Esta decisión resuelve la contradicción interna del docx alineándose con 3 de 4 secciones.
+      </div>
       <h3>Prohibited pairs (contradicciones lógicas excluidas del diseño)</h3>
       <ul>
         <li>Progresivo × Inmediato (algo que se acumula no llega hoy)</li>
-        <li>Invertir en educación y bienestar × Streaming (incoherencia narrativa)</li>
+        <li>Invertir en educación y bienestar × Streaming (incoherencia lógica)</li>
         <li>Invertir en educación y bienestar × Entretenimiento (misma lógica)</li>
       </ul>
       <h3>Post-choice del CBC (anclado a pack prototípico)</h3>
@@ -831,40 +798,27 @@ h3 { margin-top: 2rem; }
             <div class="cbc-pack cbc-pack-prototype">
               <div class="cbc-pack-header">El paquete que te motivaría más</div>
               <div class="cbc-attr">
-                <div class="cbc-attr-icon">🎯</div>
+                <div class="cbc-attr-icon">⚡</div>
                 <div class="cbc-attr-body">
-                  <div class="cbc-attr-label">Por</div>
-                  <div class="cbc-attr-value">Cumplir presupuesto</div>
-                </div>
-              </div>
-              <div class="cbc-attr">
-                <div class="cbc-attr-icon">💬</div>
-                <div class="cbc-attr-body">
-                  <div class="cbc-attr-label">Mensaje</div>
-                  <div class="cbc-attr-value">Reconocimiento del esfuerzo</div>
+                  <div class="cbc-attr-label">Se te premia por</div>
+                  <div class="cbc-attr-value">Cumplir tu presupuesto</div>
                 </div>
               </div>
               <div class="cbc-attr cbc-attr-reward">
                 <div class="cbc-attr-icon">🎁</div>
                 <div class="cbc-attr-body">
-                  <div class="cbc-attr-label">Recibes</div>
+                  <div class="cbc-attr-label">Ganas</div>
                   <div class="cbc-attr-value">
-                    <strong>Cashback · 5%</strong>
+                    <strong>5% de vuelta en tus compras</strong>
                   </div>
-                </div>
-              </div>
-              <div class="cbc-attr">
-                <div class="cbc-attr-icon">🏷️</div>
-                <div class="cbc-attr-body">
-                  <div class="cbc-attr-label">En</div>
-                  <div class="cbc-attr-value">Comida/café</div>
+                  <div class="cbc-attr-subvalue">Para usar en Comida/café</div>
                 </div>
               </div>
               <div class="cbc-attr">
                 <div class="cbc-attr-icon">⏰</div>
                 <div class="cbc-attr-body">
                   <div class="cbc-attr-label">Cuándo</div>
-                  <div class="cbc-attr-value">Al fin de mes</div>
+                  <div class="cbc-attr-value">A fin de mes</div>
                 </div>
               </div>
             </div>
@@ -1845,26 +1799,21 @@ h3 { margin-top: 2rem; }
           </li>
         </ul>
       </div>
-      <h3>Decisión metodológica pendiente: alimentar el CBC con MaxDiff</h3>
+      <h3>Decisión metodológica: narrativa fuera del CBC</h3>
       <p>
-        Existe la opción de fijar la narrativa ganadora del MaxDiff como framing constante de los packs del CBC (adaptive), 
-        en lugar de tener Narrativa como atributo variable. Trade-off:
+        La narrativa NO es atributo del CBC. Se mide únicamente en el MaxDiff (a nivel de wording fino con V1/V2). 
+        Razones para sacarla del CBC:
       </p>
       <ul>
-        <li>
-          <strong>Pro: </strong>
-          personalización por respondente, menos ruido, bundles finales más accionables por segmento narrativo.
-        </li>
-        <li>
-          <strong>Con: </strong>
-          se pierde la interacción narrativa × recompensa, cada respondente ve solo 1 narrativa (menos data por celda), 
-          requiere que Sip pueda operacionalizar la personalización en el A/B.
-        </li>
+        <li>El MaxDiff ya mide narrativa mejor (12 variantes vs 5 etiquetas abstractas).</li>
+        <li>Cualquier etiqueta narrativa mostrada en el pack (ej. 'Constancia/hábito') es jerga metodológica, no algo que el JI reconozca.</li>
+        <li>El pack queda más limpio (3 bloques visuales en vez de 5), más fácil de comparar entre packs.</li>
+        <li>La contradicción interna del docx original (Sec 4 juntaba todo, Sec 1 + Sec 7 + H7 pedían separar) se resuelve alineándose con la mayoría.</li>
       </ul>
       <p>
-        Estado actual del instrumento: 
-        <strong>Opción C · no adaptive</strong>
-        . La narrativa es un atributo variable del CBC (5 niveles) y el cruce MaxDiff × CBC se hace en el análisis post-hoc (validado en Sección 4.5).
+        <strong>Cómo se recupera la señal cruzada narrativa × recompensa:</strong>
+         en el análisis post-hoc se segmentan los respondentes por su narrativa preferida en el MaxDiff y se corre MNL de CBC por segmento (validado en Sección 4.5). 
+        El costo es no tener interacción narrativa × recompensa en el mismo modelo, pero se aproxima con la segmentación.
       </p>
     </div>
     <footer class="section" style="text-align:center;color:#6c757d;font-size:0.85rem;">
